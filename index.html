@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Growth Academy · KOF · Pitch 15 min</title>
+<style>
+  :root {
+    --kof-red: #C8102E;
+    --kof-red-dark: #A00C24;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --muted-light: #A0A0A0;
+    --bg-cream: #FEFCF6;
+    --bg-warm: #F8F4EA;
+    --bg-card: #FFFFFF;
+    --border: #E8E2D0;
+    --border-strong: #D4CCB5;
+    --gold: #D4AF37;
+    --gold-soft: #F4E4A6;
+    --green: #16A085;
+    --green-soft: #D4F1E8;
+    --red-soft: #FCE4E8;
+    --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.04);
+    --shadow-md: 0 4px 16px rgba(26, 26, 26, 0.08);
+    --shadow-lg: 0 8px 32px rgba(26, 26, 26, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-warm);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  /* =========== STAGE / CHAPTERS =========== */
+  .stage {
+    min-height: 100vh;
+    padding: 80px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stage-inner {
+    max-width: 1320px;
+    width: 100%;
+  }
+
+  .chapter-num {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 4px 12px;
+    background: var(--red-soft);
+    border-radius: 100px;
+  }
+
+  h1.chapter-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -1px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  h2.section-title {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  h3.sub-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .lede {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 640px;
+  }
+  .lede strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  p.body-text {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  p.body-text strong { color: var(--ink); font-weight: 700; }
+
+  /* =========== HERO =========== */
+  .hero {
+    background: var(--ink);
+    color: white;
+    min-height: 100vh;
+  }
+  .hero .stage-inner {
+    text-align: center;
+  }
+  .hero .meta-top {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--kof-red);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: 96px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .hero .tagline {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 60px;
+    font-weight: 300;
+  }
+  .hero .stats {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin: 60px 0;
+  }
+  .hero .stat {
+    text-align: center;
+  }
+  .hero .stat .v {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: -1px;
+  }
+  .hero .stat .l {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .hero .signature {
+    margin-top: 80px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+  }
+  .hero .signature strong {
+    color: white;
+    font-weight: 700;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  /* =========== TWO-COLUMN LAYOUT =========== */
+  .split {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .split.right {
+    grid-template-columns: 1fr 380px;
+  }
+  .split.right .text-col { order: 1; }
+  .split.right .phone-col { order: 2; }
+
+  .text-col h2 {
+    margin-bottom: 20px;
+  }
+
+  /* =========== CARDS / LISTS =========== */
+  .compromisos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .compromiso {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .compromiso .num {
+    display: inline-block;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--kof-red);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  .compromiso .ttl {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .compromiso .desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* =========== OPERA WEEK =========== */
+  .week {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .day {
+    background: white;
+    border-radius: 14px;
+    padding: 22px 16px;
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+  }
+  .day.boss {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+  .day.boss .day-name { color: var(--gold); }
+  .day .day-name {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .day .day-num {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .day.boss .day-num { color: var(--gold); }
+  .day .opera-letter {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .day.boss .opera-letter { color: white; }
+  .day .opera-word {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .day.boss .opera-word { color: rgba(255,255,255,0.85); }
+  .day .format {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    min-height: 60px;
+  }
+  .day.boss .format {
+    color: rgba(255,255,255,0.65);
+    border-color: rgba(255,255,255,0.15);
+  }
+  .day .duration {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 10px;
+    background: var(--bg-warm);
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .day.boss .duration {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+
+  /* =========== 6 WORLDS =========== */
+  .worlds {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 44px;
+  }
+  .world {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .world.first {
+    border: 2px solid var(--kof-red);
+    background: var(--red-soft);
+  }
+  .world .month-pill {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .world .num {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: var(--bg-warm);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .world.first .num {
+    background: var(--kof-red);
+    color: white;
+  }
+  .world .nm {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .world .cap {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .world .case {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--kof-red);
+    border-top: 1px dashed var(--border-strong);
+    padding-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .world.first .case {
+    border-top-color: var(--kof-red);
+  }
+
+  /* =========== KEY FACT BOX =========== */
+  .key-fact {
+    background: var(--ink);
+    color: white;
+    padding: 32px 36px;
+    border-radius: 16px;
+    margin-top: 32px;
+  }
+  .key-fact .lbl {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .key-fact .text {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.4;
+  }
+
+  /* =========== INSIGHT BOX =========== */
+  .insight-box {
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin-top: 18px;
+  }
+  .insight-box .lbl {
+    font-size: 11px;
+    font-weight: 800;
+    color: #8B7500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .insight-box .text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* =========== TIMELINE =========== */
+  .timeline {
+    margin-top: 40px;
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    border: 1px solid var(--border);
+  }
+  .timeline-track {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .timeline-month {
+    text-align: center;
+  }
+  .timeline-month .bar {
+    height: 50px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .timeline-month.prep .bar {
+    background: var(--bg-warm);
+    border: 2px dashed var(--border-strong);
+    color: var(--muted);
+  }
+  .timeline-month.bootcamp .bar {
+    background: var(--kof-red);
+    color: white;
+    border: 2px solid var(--kof-red-dark);
+  }
+  .timeline-month.world .bar {
+    background: white;
+    border: 2px solid var(--kof-red);
+    color: var(--kof-red);
+  }
+  .timeline-month.cierre .bar {
+    background: var(--gold);
+    color: white;
+    border: 2px solid var(--gold);
+  }
+  .timeline-month .label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .timeline-month .month {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* =========== STATS GRID =========== */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .stat-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-card .v {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .stat-card .l {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* =========== DAY-BY-DAY MUNDO ADQ =========== */
+  .day-anchor {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--ink);
+    color: white;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .day-anchor.lunes { background: var(--ink); }
+  .day-anchor.martes { background: var(--ink); }
+  .day-anchor.miercoles { background: var(--ink); }
+  .day-anchor.jueves { background: var(--ink); }
+  .day-anchor.viernes { background: var(--kof-red); }
+  
+  .opera-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 10px;
+    background: var(--gold-soft);
+    color: #8B7500;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .case-callout {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--kof-red);
+    padding: 14px 18px;
+    margin-top: 16px;
+    border-radius: 4px;
+  }
+  .case-callout .lbl {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--kof-red);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  .case-callout .text {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* =========== APP SCREENS GRID =========== */
+  .screens-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 24px;
+    margin-top: 50px;
+  }
+  .screen-cell {
+    text-align: center;
+  }
+  .screen-cell .screen-label {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .screen-cell .screen-desc {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* =========== SECTION DIVIDER =========== */
+  .section-divider {
+    margin: 60px 0;
+    text-align: center;
+  }
+  .section-divider .line {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: var(--kof-red);
+  }
+
+  /* =========== CLOSING =========== */
+  .closing {
+    background: var(--ink);
+    color: white;
+  }
+  .closing h1 {
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .closing .tagline {
+    font-size: 22px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+  .closing .key-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+  .closing .key-list .item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .closing .key-list .item .v {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .closing .key-list .item .l {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  /* =========== PHONE FRAME =========== */
+  .phone {
+    width: 320px;
+    height: 660px;
+    background: var(--ink);
+    border-radius: 36px;
+    padding: 8px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    margin: 0 auto;
+  }
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 18px; left: 50%;
+    transform: translateX(-50%);
+    width: 90px; height: 22px;
+    background: var(--ink);
+    border-radius: 100px;
+    z-index: 10;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    background: var(--bg-cream);
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* =========== INTERNAL PHONE COMPONENTS =========== */
+  .status-bar {
+    height: 44px;
+    padding: 0 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .status-bar .icons { display: flex; gap: 4px; }
+  .nav-bar {
+    height: 56px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar .back {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+    font-size: 18px;
+  }
+  .nav-bar .title { font-size: 14px; font-weight: 600; }
+  .nav-bar .right { width: 32px; }
+  .bottom-nav {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 64px;
+    background: white;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 8px;
+  }
+  .bottom-nav .item {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 6px 12px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .bottom-nav .item.active { color: var(--kof-red); }
+  .bottom-nav .item .ic { font-size: 18px; }
+  .content {
+    flex: 1;
+    overflow: hidden;
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+
+  /* SPLASH */
+  .splash {
+    background: var(--ink);
+    color: white;
+    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px;
+    text-align: center;
+  }
+  .splash .logo-mark {
+    width: 80px; height: 80px;
+    background: var(--kof-red);
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: 800;
+    color: white;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 32px rgba(200, 16, 46, 0.3);
+  }
+  .splash .brand { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 6px; }
+  .splash .tag { font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-bottom: 80px; }
+  .splash .loading { display: flex; gap: 6px; }
+  .splash .loading span { width: 6px; height: 6px; background: var(--kof-red); border-radius: 50%; }
+
+  /* HOME */
+  .home-greeting { padding: 16px 0; margin-bottom: 12px; }
+  .home-greeting .hello { font-size: 13px; color: var(--muted); }
+  .home-greeting .name { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; margin-top: 2px; }
+  .home-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .home-stats .stat-c { background: white; padding: 12px 8px; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
+  .home-stats .stat-c .val { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .home-stats .stat-c .lbl { font-size: 9px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .path-section-title {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+  }
+  .world-card {
+    background: white; border-radius: 14px; padding: 14px;
+    margin-bottom: 10px; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px; position: relative;
+  }
+  .world-card.active { border: 2px solid var(--kof-red); box-shadow: var(--shadow-sm); }
+  .world-card.locked { opacity: 0.5; }
+  .world-card .num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--ink); font-size: 14px; flex-shrink: 0;
+  }
+  .world-card.active .num { background: var(--kof-red); color: white; }
+  .world-card.completed .num { background: var(--green); color: white; }
+  .world-card .info { flex: 1; }
+  .world-card .nm { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .world-card .sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .world-card .progress-mini {
+    height: 3px; background: var(--bg-warm); border-radius: 100px;
+    margin-top: 6px; overflow: hidden;
+  }
+  .world-card .progress-mini .fill { height: 100%; background: var(--kof-red); border-radius: 100px; }
+  .world-card .lock-ic { color: var(--muted-light); font-size: 14px; }
+
+  /* WORLD VIEW */
+  .world-hero {
+    background: linear-gradient(135deg, var(--kof-red) 0%, var(--kof-red-dark) 100%);
+    color: white; padding: 24px 16px;
+    border-radius: 0 0 24px 24px;
+    margin: -16px -16px 16px -16px;
+  }
+  .world-hero .label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; }
+  .world-hero .name { font-size: 22px; font-weight: 800; margin-top: 4px; letter-spacing: -0.3px; }
+  .world-hero .desc { font-size: 12px; opacity: 0.85; margin-top: 6px; }
+  .world-hero .meta { display: flex; gap: 12px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+  .world-hero .meta-item { flex: 1; }
+  .world-hero .meta-item .v { font-size: 14px; font-weight: 700; }
+  .world-hero .meta-item .l { font-size: 9px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+  .unit-card {
+    background: white; border-radius: 12px; padding: 14px;
+    margin-bottom: 8px; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .unit-card .week-c {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--muted); font-size: 11px; flex-shrink: 0;
+  }
+  .unit-card.completed .week-c { background: var(--green); color: white; }
+  .unit-card.active .week-c { background: var(--kof-red); color: white; }
+  .unit-card .info { flex: 1; }
+  .unit-card .ttl { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .unit-card .meta-line { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .unit-card .badge {
+    font-size: 9px; font-weight: 700; padding: 3px 8px;
+    border-radius: 100px; background: var(--bg-warm); color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .unit-card.active .badge { background: var(--kof-red); color: white; }
+  .unit-card.completed .badge { background: var(--green); color: white; }
+
+  /* UNIT VIEW */
+  .unit-hero { padding: 16px 0 12px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+  .unit-hero .breadcrumb { font-size: 10px; color: var(--kof-red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .unit-hero .ttl { font-size: 18px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; }
+  .unit-hero .case { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  .unit-hero .case strong { color: var(--ink); }
+  .day-card {
+    background: white; border-radius: 12px; padding: 12px;
+    margin-bottom: 8px; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .day-card.completed { background: var(--green-soft); border-color: var(--green); }
+  .day-card.active { border-color: var(--kof-red); background: var(--red-soft); }
+  .day-card .day-mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 10px; color: var(--ink); flex-shrink: 0;
+  }
+  .day-card.active .day-mark { background: var(--kof-red); color: white; }
+  .day-card.completed .day-mark { background: var(--green); color: white; }
+  .day-card .info { flex: 1; }
+  .day-card .ttl { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .day-card .sub { font-size: 10px; color: var(--muted); margin-top: 1px; }
+  .day-card .timing {
+    font-size: 9px; font-weight: 600; padding: 3px 8px;
+    border-radius: 100px; background: var(--bg-warm); color: var(--muted);
+  }
+  .day-card.active .timing { background: var(--kof-red); color: white; }
+  .day-card.completed .timing { background: var(--green); color: white; }
+
+  /* VIDEO CAMERA ROLL */
+  .video-stage {
+    background: var(--ink); border-radius: 16px;
+    aspect-ratio: 9/16; width: 100%; max-height: 320px;
+    position: relative; overflow: hidden;
+    margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-stage::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+  }
+  .video-stage .play-btn {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink); font-size: 22px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3); z-index: 2;
+  }
+  .video-stage .speaker {
+    position: absolute; bottom: 14px; left: 14px; right: 14px;
+    color: white; z-index: 2;
+  }
+  .video-stage .speaker .name { font-size: 13px; font-weight: 700; }
+  .video-stage .speaker .role { font-size: 10px; opacity: 0.8; margin-top: 2px; }
+  .video-stage .duration {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+    color: white; padding: 3px 8px; border-radius: 100px;
+    font-size: 10px; font-weight: 600; z-index: 2;
+  }
+  .video-question {
+    background: var(--gold-soft); border: 1px solid var(--gold);
+    border-radius: 12px; padding: 12px; margin-bottom: 8px;
+  }
+  .video-question .q-label {
+    font-size: 9px; color: #8B7500; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .video-question .q-text { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+  .next-btn {
+    width: 100%; padding: 12px; background: var(--ink);
+    color: white; border: none; border-radius: 12px;
+    font-size: 13px; font-weight: 700; margin-top: 10px; text-align: center;
+  }
+  .next-btn.kof { background: var(--kof-red); }
+
+  /* BRANCHING */
+  .branching-prompt {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px; margin-bottom: 14px;
+  }
+  .branching-prompt .role {
+    font-size: 9px; color: var(--kof-red); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .branching-prompt .scenario { font-size: 12px; color: var(--ink); margin-top: 6px; line-height: 1.5; }
+  .branching-prompt .scenario strong { font-weight: 700; }
+  .question-banner { text-align: center; margin: 16px 0 12px; }
+  .question-banner .label {
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .question-banner .q { font-size: 14px; font-weight: 800; color: var(--ink); }
+  .option-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 12px; margin-bottom: 8px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .option-card.selected { border: 2px solid var(--kof-red); background: var(--red-soft); }
+  .option-card .opt-letter {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: var(--ink); flex-shrink: 0;
+  }
+  .option-card.selected .opt-letter { background: var(--kof-red); color: white; }
+  .option-card .opt-text { font-size: 11px; line-height: 1.4; color: var(--ink-soft); }
+
+  /* DASHBOARD HUNTING */
+  .dash-header { background: var(--ink); color: white; padding: 14px; border-radius: 12px; margin-bottom: 12px; }
+  .dash-header .ttl { font-size: 13px; font-weight: 700; }
+  .dash-header .sub { font-size: 10px; opacity: 0.7; margin-top: 2px; }
+  .dash-header .timer {
+    margin-top: 10px; display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1); padding: 6px 10px;
+    border-radius: 8px; width: fit-content;
+  }
+  .dash-header .timer .clock { font-size: 12px; }
+  .dash-header .timer .num { font-family: 'SF Mono', monospace; font-size: 12px; font-weight: 700; color: var(--gold); }
+  .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+  .metric-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 10px; cursor: pointer; }
+  .metric-card.flagged { border: 2px solid var(--kof-red); background: var(--red-soft); }
+  .metric-card .name { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .metric-card .val { font-size: 17px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+  .metric-card .delta { font-size: 10px; margin-top: 2px; font-weight: 600; }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--kof-red); }
+  .delta.flat { color: var(--muted); }
+  .insight-cta {
+    background: var(--gold-soft); border: 1px solid var(--gold);
+    border-radius: 12px; padding: 10px; text-align: center; margin-top: 8px;
+  }
+  .insight-cta .label {
+    font-size: 9px; color: #8B7500; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px;
+  }
+  .insight-cta .text { font-size: 11px; font-weight: 700; color: var(--ink); }
+
+  /* BATTLE 1V1 */
+  .battle-arena { text-align: center; padding: 16px 0; }
+  .battle-arena .title-banner {
+    font-size: 9px; color: var(--kof-red); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 2px;
+  }
+  .battle-arena h2 { font-size: 20px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+  .battle-row { display: flex; align-items: center; justify-content: space-between; margin: 24px 0 16px; }
+  .battle-fighter { text-align: center; flex: 1; }
+  .battle-fighter .avatar {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--kof-red), var(--kof-red-dark));
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 22px;
+    margin: 0 auto 8px;
+    border: 3px solid white; box-shadow: var(--shadow-md);
+  }
+  .battle-fighter .nm { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .battle-fighter .team {
+    font-size: 9px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-top: 1px;
+  }
+  .battle-vs { font-size: 18px; font-weight: 900; color: var(--kof-red); padding: 0 12px; }
+  .battle-prompt-box {
+    background: var(--ink); color: white; border-radius: 14px;
+    padding: 14px; margin-bottom: 14px;
+  }
+  .battle-prompt-box .lbl {
+    font-size: 9px; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 1px; font-weight: 700; margin-bottom: 6px;
+  }
+  .battle-prompt-box .q { font-size: 12px; line-height: 1.5; }
+  .record-button {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--kof-red); margin: 16px auto;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(200, 16, 46, 0.4); position: relative;
+  }
+  .record-button::after {
+    content: ''; position: absolute; inset: -8px;
+    border-radius: 50%; border: 2px solid var(--kof-red); opacity: 0.3;
+  }
+  .record-button .ic { color: white; font-size: 28px; }
+  .record-info { text-align: center; }
+  .record-info .timer { font-size: 22px; font-weight: 800; color: var(--ink); font-family: 'SF Mono', monospace; }
+  .record-info .max { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* BOSS LEVEL */
+  .boss-hero {
+    background: linear-gradient(135deg, var(--ink), #2A2A2A);
+    color: white; border-radius: 16px; padding: 18px;
+    margin-bottom: 14px; position: relative; overflow: hidden;
+  }
+  .boss-hero::before {
+    content: ''; position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, var(--kof-red) 0%, transparent 70%);
+    opacity: 0.6;
+  }
+  .boss-hero .lbl {
+    font-size: 9px; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 2px; font-weight: 800; margin-bottom: 6px; position: relative;
+  }
+  .boss-hero h2 { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 4px; position: relative; }
+  .boss-hero .reward {
+    display: flex; gap: 12px; margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15); position: relative;
+  }
+  .boss-hero .reward .item { flex: 1; }
+  .boss-hero .reward .v { font-size: 14px; font-weight: 800; color: var(--gold); }
+  .boss-hero .reward .l { font-size: 9px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
+  .briefing-box {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px; margin-bottom: 12px;
+  }
+  .briefing-box .lbl {
+    font-size: 9px; color: var(--kof-red); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .briefing-box p { font-size: 11px; line-height: 1.5; color: var(--ink-soft); margin-bottom: 6px; }
+  .upload-area {
+    background: var(--bg-warm); border: 2px dashed var(--border-strong);
+    border-radius: 12px; padding: 16px; text-align: center; margin-bottom: 12px;
+  }
+  .upload-area .ic { font-size: 28px; color: var(--muted-light); }
+  .upload-area .ttl { font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 6px; }
+  .upload-area .sub { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* SANDBOX */
+  .sandbox-canvas {
+    background: white; border-radius: 12px; padding: 14px;
+    border: 1px solid var(--border); margin-bottom: 12px; min-height: 200px;
+  }
+  .sandbox-step {
+    display: flex; align-items: center; gap: 8px; padding: 8px;
+    background: var(--bg-warm); border-radius: 8px; margin-bottom: 6px;
+  }
+  .sandbox-step .num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--kof-red); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800;
+  }
+  .sandbox-step .label { font-size: 11px; font-weight: 600; color: var(--ink); flex: 1; }
+  .sandbox-step .arrow { color: var(--muted-light); font-size: 14px; }
+  .sandbox-add {
+    background: white; border: 2px dashed var(--border-strong);
+    border-radius: 8px; padding: 10px; text-align: center;
+    color: var(--muted); font-size: 11px; font-weight: 600; cursor: pointer;
+  }
+
+  /* LIGA */
+  .liga-header {
+    text-align: center; padding: 14px 0; margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .liga-header .lbl {
+    font-size: 9px; color: var(--kof-red); text-transform: uppercase;
+    letter-spacing: 1.5px; font-weight: 800;
+  }
+  .liga-header h2 { font-size: 16px; font-weight: 800; margin-top: 4px; }
+  .liga-podium { display: flex; align-items: flex-end; justify-content: center; gap: 6px; margin-bottom: 16px; }
+  .liga-podium .place { text-align: center; flex: 1; max-width: 80px; }
+  .liga-podium .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--kof-red); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px; margin: 0 auto;
+    border: 2px solid white; box-shadow: var(--shadow-sm);
+  }
+  .liga-podium .nm { font-size: 9px; font-weight: 700; color: var(--ink); margin-top: 4px; }
+  .liga-podium .xp { font-size: 10px; font-weight: 800; color: var(--kof-red); }
+  .liga-podium .pillar {
+    background: var(--bg-warm); border-radius: 8px 8px 0 0;
+    margin-top: 6px; padding: 8px 4px 12px; border: 1px solid var(--border);
+  }
+  .liga-podium .pillar.gold { background: var(--gold-soft); border-color: var(--gold); height: 80px; }
+  .liga-podium .pillar.silver { background: #E8EAEC; height: 64px; }
+  .liga-podium .pillar.bronze { background: #F5DEB3; height: 50px; }
+  .liga-podium .pillar .rank { font-size: 14px; font-weight: 800; color: var(--ink); }
+  .ranked-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; background: white; border-radius: 10px;
+    margin-bottom: 6px; border: 1px solid var(--border);
+  }
+  .ranked-row.me { background: var(--red-soft); border-color: var(--kof-red); }
+  .ranked-row .rank { font-weight: 800; font-size: 12px; color: var(--muted); min-width: 18px; }
+  .ranked-row .av {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: var(--ink);
+  }
+  .ranked-row .nm { flex: 1; font-size: 12px; font-weight: 600; color: var(--ink); }
+  .ranked-row .xp-val { font-size: 11px; font-weight: 800; color: var(--kof-red); }
+
+  /* PROFILE */
+  .profile-header { text-align: center; padding: 18px 0; }
+  .profile-header .av {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--kof-red), var(--kof-red-dark));
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 800;
+    margin: 0 auto 10px;
+    border: 3px solid white; box-shadow: var(--shadow-md);
+  }
+  .profile-header .nm { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .profile-header .role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .profile-header .level-pill {
+    display: inline-block; margin-top: 8px; padding: 4px 12px;
+    background: var(--gold-soft); border: 1px solid var(--gold);
+    border-radius: 100px; font-size: 10px; font-weight: 800;
+    color: var(--ink); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
+  .profile-stats .stat-c {
+    background: white; padding: 12px 8px; border-radius: 12px;
+    border: 1px solid var(--border); text-align: center;
+  }
+  .profile-stats .stat-c .val { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .profile-stats .stat-c .lbl { font-size: 9px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
+  .badge-item {
+    aspect-ratio: 1; background: white; border: 1px solid var(--border);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .badge-item.locked { opacity: 0.3; filter: grayscale(1); }
+  .badge-item.gold { background: var(--gold-soft); border-color: var(--gold); }
+
+  /* NOTIFICATION */
+  .notif-stage {
+    background: linear-gradient(180deg, #2A2A2A, #1A1A1A);
+    height: 100%; padding: 0; display: flex; flex-direction: column;
+  }
+  .notif-stage .lock-time { text-align: center; color: white; padding: 60px 0 24px; }
+  .notif-stage .lock-time .h { font-size: 64px; font-weight: 200; letter-spacing: -2px; }
+  .notif-stage .lock-time .d { font-size: 13px; opacity: 0.6; margin-top: -6px; }
+  .notif-card {
+    margin: 0 16px 12px; background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(20px); border-radius: 16px; padding: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .notif-card .head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .notif-card .ic-app {
+    width: 22px; height: 22px; border-radius: 5px;
+    background: var(--kof-red); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800;
+  }
+  .notif-card .app-name { font-size: 11px; font-weight: 700; color: white; }
+  .notif-card .time { font-size: 10px; color: rgba(255,255,255,0.6); margin-left: auto; }
+  .notif-card .ttl { font-size: 13px; font-weight: 700; color: white; margin-bottom: 3px; }
+  .notif-card .body { font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+
+  /* CERT */
+  .cert-stage {
+    height: 100%; background: linear-gradient(180deg, var(--bg-cream), var(--gold-soft));
+    padding: 24px 16px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+  }
+  .cert-medal {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #B8860B);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 50px; color: white;
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.4);
+    margin-bottom: 20px; border: 6px solid white;
+  }
+  .cert-stage .label {
+    font-size: 10px; color: #8B7500; text-transform: uppercase;
+    letter-spacing: 2px; font-weight: 800; margin-bottom: 6px;
+  }
+  .cert-stage h2 { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; margin-bottom: 10px; }
+  .cert-stage .desc { font-size: 12px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 14px; max-width: 260px; }
+  .cert-stage .name-line {
+    font-size: 16px; font-weight: 700; color: var(--ink);
+    border-top: 1px solid var(--border-strong); border-bottom: 1px solid var(--border-strong);
+    padding: 10px 0; margin-bottom: 10px;
+  }
+  .cert-stage .meta-line { font-size: 10px; color: var(--muted); margin-bottom: 24px; }
+  .cert-actions { display: flex; gap: 8px; width: 100%; }
+  .cert-actions button {
+    flex: 1; padding: 12px; border-radius: 10px; border: none;
+    font-size: 12px; font-weight: 700;
+  }
+  .cert-actions .primary { background: var(--kof-red); color: white; }
+  .cert-actions .secondary { background: white; color: var(--ink); border: 1px solid var(--border-strong); }
+
+  @media (max-width: 1100px) {
+    .split, .split.right { grid-template-columns: 1fr; gap: 40px; }
+    .split.right .text-col { order: 2; }
+    .split.right .phone-col { order: 1; }
+    .stage { padding: 60px 30px; }
+    .hero h1 { font-size: 64px; }
+    h1.chapter-title { font-size: 40px; }
+    .worlds, .compromisos, .stats-grid, .screens-grid { grid-template-columns: 1fr 1fr; }
+    .week { grid-template-columns: 1fr; }
+    .timeline-track { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- 01 · HERO -->
+<!-- ============================================ -->
+<section class="stage hero" style="position: relative;">
+  <div class="stage-inner">
+    <div class="meta-top">PROPUESTA FUNCIONAL · DIGITAL ACADEMY</div>
+    <h1>Digital Growth<br>Academy</h1>
+    <div class="tagline">El programa móvil de capacidades digitales</div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="v">6</div>
+        <div class="l">Meses</div>
+      </div>
+      <div class="stat">
+        <div class="v">6</div>
+        <div class="l">Mundos temáticos</div>
+      </div>
+      <div class="stat">
+        <div class="v">100%</div>
+        <div class="l">En el celular</div>
+      </div>
+    </div>
+
+    <div class="signature">
+      Preparado para <strong>Equipo Coca-Cola FEMSA · Juntos+</strong> · por <strong>Growth Rockstar</strong> · Abril 2026
+    </div>
+  </div>
+  <div class="scroll-hint">↓ Scroll para empezar</div>
+</section>
+
+<!-- ============================================ -->
+<!-- 02 · LA PROMESA + PRINCIPIOS -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner">
+    <span class="chapter-num">01 · La promesa</span>
+    <h1 class="chapter-title">No es un curso online.<br>Es un juego que enseña.</h1>
+    <p class="lede">Un programa de capacidades digitales de <strong>6 meses, 100% en el celular</strong>, donde el equipo de Juntos+ avanza por 6 mundos temáticos haciendo retos sobre <strong>casos reales</strong> de Nubank, Mercado Libre, Rappi, Treinta y Frubana. Cada semana culmina con un Boss Level, cada mundo certifica una capacidad ejecutable.</p>
+
+    <div class="compromisos">
+      <div class="compromiso">
+        <div class="num">1</div>
+        <div class="ttl">100% mobile-first</div>
+        <div class="desc">App diseñada para celular, no plataforma web adaptada. Sesiones de 5–12 minutos.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">2</div>
+        <div class="ttl">0% e-learning aburrido</div>
+        <div class="desc">No videos pasivos de 45 minutos. Cero quizzes de selección múltiple.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">3</div>
+        <div class="ttl">Casos reales en cada reto</div>
+        <div class="desc">Toda decisión simulada se construye sobre situaciones reales de empresas conocidas.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">4</div>
+        <div class="ttl">Boss Level semanal con stakes</div>
+        <div class="desc">Cada viernes, el reto más exigente de la semana. Impacta liga, perfil y certificación.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">5</div>
+        <div class="ttl">Diferenciación Gerencial / Operacional</div>
+        <div class="desc">Cada mundo tiene path por perfil. Algunas unidades compartidas, otras exclusivas.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">6</div>
+        <div class="ttl">Liga de selecciones cruzada</div>
+        <div class="desc">La liga del Bootcamp continúa los 6 meses con marcador en la app.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">7</div>
+        <div class="ttl">Certificación al cierre de cada mundo</div>
+        <div class="desc">6 certificaciones individuales + 1 integrada Digital Growth Academy KOF 2026.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">8</div>
+        <div class="ttl">Solo 50–70 min por semana</div>
+        <div class="desc">Distribuidos en 5 sesiones. Compatible con la operación cotidiana del equipo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 03 · SEMANA OPERA -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner">
+    <span class="chapter-num">02 · El ritmo semanal</span>
+    <h1 class="chapter-title">OPERA: Lunes observas, Viernes aplicas.</h1>
+    <p class="lede">Cada semana del programa atraviesa <strong>las mismas 5 fases pedagógicas</strong> en el mismo orden. El equipo aprende el ritmo en la primera semana y se vuelve hábito durante 6 meses.</p>
+
+    <div class="week">
+      <div class="day">
+        <div class="day-name">Lunes</div>
+        <div class="day-num">L</div>
+        <div class="opera-letter">O</div>
+        <div class="opera-word">Observar</div>
+        <div class="format">Camera Roll: video 90s del speaker contando un caso real</div>
+        <div class="duration">5 min</div>
+      </div>
+      <div class="day">
+        <div class="day-name">Martes</div>
+        <div class="day-num">M</div>
+        <div class="opera-letter">P</div>
+        <div class="opera-word">Provocar</div>
+        <div class="format">Branching Simulator: decisiones que cambian el curso del caso</div>
+        <div class="duration">8–12 min</div>
+      </div>
+      <div class="day">
+        <div class="day-name">Miércoles</div>
+        <div class="day-num">X</div>
+        <div class="opera-letter">E</div>
+        <div class="opera-word">Experimentar</div>
+        <div class="format">Dashboard Hunting o Sandbox: manipular variables, probar hipótesis</div>
+        <div class="duration">8–15 min</div>
+      </div>
+      <div class="day">
+        <div class="day-name">Jueves</div>
+        <div class="day-num">J</div>
+        <div class="opera-letter">R</div>
+        <div class="opera-word">Retar</div>
+        <div class="format">Battle 1v1: pareja contra pareja con pitch grabado</div>
+        <div class="duration">10–15 min</div>
+      </div>
+      <div class="day boss">
+        <div class="day-name">Viernes</div>
+        <div class="day-num">V</div>
+        <div class="opera-letter">A</div>
+        <div class="opera-word">Aterrizar</div>
+        <div class="format">Boss Level: reto aplicado a la operación real del participante</div>
+        <div class="duration">15–30 min</div>
+      </div>
+    </div>
+
+    <div class="key-fact">
+      <div class="lbl">El insight clave</div>
+      <div class="text">El operador móvil no aprende en bloques de 45 minutos. Aprende en migajas de 5–15 minutos: lo que dura el camino al trabajo, una pausa de café, la espera entre dos reuniones.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 04 · LOS 6 MUNDOS -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner">
+    <span class="chapter-num">03 · El path</span>
+    <h1 class="chapter-title">6 mundos en 6 meses. Uno por mes.</h1>
+    <p class="lede">Cada mundo es <strong>autocontenido</strong>: tiene su propio brief, sus 4 unidades semanales, sus 4 Boss Levels, su certificación. Cubre los 5 pilares del RFP + adquisición como palanca crítica de crecimiento.</p>
+
+    <div class="worlds">
+      <div class="world first">
+        <div class="month-pill">Mes 1 · Junio</div>
+        <div class="num">1</div>
+        <div class="nm">🚀 Adquisición acelerada</div>
+        <div class="cap">Diseñar y operar funnels B2B con CAC controlado, sin depender de campañas masivas.</div>
+        <div class="case">Casos · Nubank · Treinta</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 2 · Julio</div>
+        <div class="num">2</div>
+        <div class="nm">🔄 Retención sistémica</div>
+        <div class="cap">Diseñar journeys de retención y modelar LTV en negocios de alta frecuencia.</div>
+        <div class="case">Casos · Mercado Libre · Rappi</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 3 · Agosto</div>
+        <div class="num">3</div>
+        <div class="nm">🧠 Customer Behavior</div>
+        <div class="cap">Leer comportamiento digital y operar segmentación dinámica con señales en tiempo real.</div>
+        <div class="case">Casos · Mercado Libre · Nubank</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 4 · Septiembre</div>
+        <div class="num">4</div>
+        <div class="nm">💥 Demand Gen B2B2C</div>
+        <div class="cap">Diseñar mecánicas donde el canal B2B activa demanda al consumidor final.</div>
+        <div class="case">Casos · Rappi · Frubana</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 5 · Octubre</div>
+        <div class="num">5</div>
+        <div class="nm">🤝 Customer Journey Phygital</div>
+        <div class="cap">Orquestar journeys donde lo digital y lo físico se refuerzan.</div>
+        <div class="case">Casos · Treinta · Juntos+</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 6 · Noviembre</div>
+        <div class="num">6</div>
+        <div class="nm">🧪 Experimentación</div>
+        <div class="cap">Operar como motor de growth: diseñar, ejecutar y leer experimentos.</div>
+        <div class="case">Casos · Nubank · Rappi</div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="lbl">Por qué 6 y no más ni menos</div>
+      <div class="text">4 mundos serían pocos: el RFP marca 5 pilares + adquisición. 8 mundos serían demasiados: 8 meses sostiene mal el momentum. 6 mundos en 6 meses es el sweet spot — ritmo sostenible, momentum constante, cierre antes del cambio de año fiscal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 05 · INTRO MUNDO ADQUISICIÓN -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner">
+    <span class="chapter-num">04 · La muestra</span>
+    <h1 class="chapter-title">Mundo Adquisición a profundidad.</h1>
+    <p class="lede">A continuación recorremos el <strong>Mundo 1 · Adquisición</strong> día por día como muestra de cómo se construye cada mundo de la Academy. Los otros 5 mundos siguen exactamente la misma arquitectura con casos y mecánicas distintas.</p>
+
+    <div class="key-fact" style="margin-top: 40px;">
+      <div class="lbl">Misión del mundo</div>
+      <div class="text">Diseñar y operar funnels de adquisición B2B con CAC controlado, sin depender de campañas masivas tradicionales.</div>
+    </div>
+
+    <div class="stats-grid" style="margin-top: 40px;">
+      <div class="stat-card">
+        <div class="v">4</div>
+        <div class="l">Unidades semanales</div>
+      </div>
+      <div class="stat-card">
+        <div class="v">4</div>
+        <div class="l">Boss Levels semanales</div>
+      </div>
+      <div class="stat-card">
+        <div class="v">1</div>
+        <div class="l">Boss Level integrador</div>
+      </div>
+      <div class="stat-card">
+        <div class="v">500</div>
+        <div class="l">XP máximo del mundo</div>
+      </div>
+    </div>
+
+    <div class="insight-box" style="margin-top: 32px;">
+      <div class="lbl">Empezamos por adquisición</div>
+      <div class="text">Es la palanca crítica de crecimiento que el RFP marca como prioridad y continúa el momentum del Bootcamp (Día 1 abre con caso de adquisición Nubank). Es también el más concreto: produce decisiones operativas inmediatas en la plaza del participante.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 06 · LUNES CAMERA ROLL TREINTA -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner split">
+    <div class="phone-col">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="status-bar"><span>7:42</span><span class="icons">●●●</span></div>
+          <div class="nav-bar">
+            <div class="back">←</div>
+            <div class="title">Lunes · Observar</div>
+            <div class="right"></div>
+          </div>
+          <div class="content">
+            <div class="video-stage" style="background: linear-gradient(135deg, #2A2A2A, #1A1A1A);">
+              <div class="duration">0:90</div>
+              <div class="play-btn">▶</div>
+              <div class="speaker">
+                <div class="name">Speaker · Treinta</div>
+                <div class="role">Ex-VP Growth · Caso real</div>
+              </div>
+            </div>
+            <div class="briefing-box" style="margin-bottom: 8px;">
+              <div class="lbl">EL RETO</div>
+              <p>"Teníamos 50,000 tenderos registrados pero solo 12,000 activos. ¿Dónde estaba la fuga?"</p>
+            </div>
+            <div class="video-question">
+              <div class="q-label">REFLEXIONA</div>
+              <div class="q-text">¿Qué crees que pasó? ¿Qué hipótesis tienes?</div>
+            </div>
+            <button class="next-btn">Marcar visto · +10 XP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-col">
+      <span class="day-anchor lunes">Lunes 7:42 AM · 5 min</span>
+      <span class="opera-tag">Observar</span>
+      <h2 class="section-title" style="margin-top: 20px;">Camera Roll: el caso de Treinta.</h2>
+      <p class="body-text">El lunes el participante <strong>abre la app camino al trabajo</strong>. Lo recibe un video corto de 90 segundos del speaker de Treinta contando un reto real: <strong>"Teníamos 50,000 tenderos registrados pero solo 12,000 activos."</strong></p>
+      <p class="body-text">No es una clase magistral. Es un <strong>operador real</strong> contando lo que vivió, en el formato que el equipo ya consume todos los días: corto, denso, con voz humana.</p>
+
+      <div class="case-callout">
+        <div class="lbl">Por qué Treinta</div>
+        <div class="text">Treinta es la super-app B2B colombiana para tenderos. Es el caso más cercano a Juntos+ que existe en LATAM, con retos públicos documentados de retención y unit economics. Lo que ellos vivieron, Juntos+ lo puede vivir.</div>
+      </div>
+
+      <p class="body-text" style="margin-top: 20px;">Cierre del lunes: una pregunta abierta — <strong>"¿Qué crees que pasó?"</strong> El participante anota su hipótesis. La app le da +10 XP por participar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 07 · MARTES BRANCHING -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner split right">
+    <div class="text-col">
+      <span class="day-anchor martes">Martes 8:15 AM · 8 min</span>
+      <span class="opera-tag">Provocar</span>
+      <h2 class="section-title" style="margin-top: 20px;">Branching Simulator: tú decides.</h2>
+      <p class="body-text">Martes a la mañana. <strong>El participante deja de ser observador y se vuelve protagonista.</strong> La app lo pone como equipo de Adquisición de Treinta y lo enfrenta a una decisión real:</p>
+      <p class="body-text">"<strong>El CEO te pide investigar la fuga. Tienes presupuesto solo para una de estas 3 hipótesis. ¿Cuál priorizas?</strong>"</p>
+
+      <div class="case-callout">
+        <div class="lbl">La trampa pedagógica</div>
+        <div class="text">Las 3 hipótesis suenan plausibles: "el onboarding cambió", "la competencia atacó", "el producto falló". Solo una es la causa raíz real. Las otras 2 enseñan tanto como la correcta — porque al elegirlas, el participante recibe data en tiempo real que muestra por qué esa hipótesis no era la prioritaria.</div>
+      </div>
+
+      <p class="body-text" style="margin-top: 20px;">Cada decisión <strong>cambia el curso del caso</strong>. Cada decisión revela un dato. Cada decisión abre o cierra ramas. El participante no aprende escuchando: aprende <strong>equivocándose y corrigiendo</strong>.</p>
+    </div>
+
+    <div class="phone-col">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="status-bar"><span>8:15</span><span class="icons">●●●</span></div>
+          <div class="nav-bar">
+            <div class="back">←</div>
+            <div class="title">Martes · Provocar</div>
+            <div class="right"></div>
+          </div>
+          <div class="content">
+            <div class="branching-prompt">
+              <div class="role">ERES EL EQUIPO DE TREINTA</div>
+              <div class="scenario">El CEO te pide investigar la fuga. Tienes presupuesto solo para <strong>una</strong> de estas 3 hipótesis. ¿Cuál priorizas?</div>
+            </div>
+            <div class="question-banner">
+              <div class="label">DECIDE</div>
+              <div class="q">¿Qué investigarías primero?</div>
+            </div>
+            <div class="option-card selected">
+              <div class="opt-letter">A</div>
+              <div class="opt-text"><strong>El onboarding cambió.</strong> Investigar journey de los últimos 60 días.</div>
+            </div>
+            <div class="option-card">
+              <div class="opt-letter">B</div>
+              <div class="opt-text"><strong>La competencia atacó.</strong> Investigar qué hizo Chiper en plazas clave.</div>
+            </div>
+            <div class="option-card">
+              <div class="opt-letter">C</div>
+              <div class="opt-text"><strong>El producto falló.</strong> Investigar quejas en soporte.</div>
+            </div>
+            <button class="next-btn kof">Confirmar elección</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 08 · MIÉRCOLES DASHBOARD HUNTING -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner split">
+    <div class="phone-col">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="status-bar"><span>12:34</span><span class="icons">●●●</span></div>
+          <div class="nav-bar">
+            <div class="back">←</div>
+            <div class="title">Miércoles · Experimentar</div>
+            <div class="right"></div>
+          </div>
+          <div class="content">
+            <div class="dash-header">
+              <div class="ttl">Dashboard de Treinta · Q3</div>
+              <div class="sub">8 métricas. Encuentra el patrón crítico.</div>
+              <div class="timer">
+                <span class="clock">⏱</span>
+                <span class="num">07:23</span>
+              </div>
+            </div>
+            <div class="metric-grid">
+              <div class="metric-card">
+                <div class="name">Registros</div>
+                <div class="val">52,840</div>
+                <div class="delta up">↑ +8%</div>
+              </div>
+              <div class="metric-card flagged">
+                <div class="name">Activación %</div>
+                <div class="val">22.4%</div>
+                <div class="delta down">↓ -34%</div>
+              </div>
+              <div class="metric-card">
+                <div class="name">CAC</div>
+                <div class="val">$28</div>
+                <div class="delta flat">— 0%</div>
+              </div>
+              <div class="metric-card">
+                <div class="name">Onboarding</div>
+                <div class="val">14 min</div>
+                <div class="delta down">↑ +5min</div>
+              </div>
+              <div class="metric-card">
+                <div class="name">NPS Top</div>
+                <div class="val">42</div>
+                <div class="delta down">↓ -18</div>
+              </div>
+              <div class="metric-card">
+                <div class="name">Churn 30d</div>
+                <div class="val">8.2%</div>
+                <div class="delta up">↑ +2%</div>
+              </div>
+            </div>
+            <div class="insight-cta">
+              <div class="label">¡INSIGHT DETECTADO!</div>
+              <div class="text">Activación cayó · Onboarding subió a 14 min. Conexión clara.</div>
+            </div>
+            <button class="next-btn kof">Confirmar diagnóstico</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-col">
+      <span class="day-anchor miercoles">Miércoles 12:34 PM · 10 min</span>
+      <span class="opera-tag">Experimentar</span>
+      <h2 class="section-title" style="margin-top: 20px;">Dashboard Hunting móvil.</h2>
+      <p class="body-text">Miércoles, hora de almuerzo. La app le presenta al participante <strong>el dashboard real de Treinta</strong> con 8 métricas. Reto: encontrar el patrón crítico antes de que se acabe el timer de 8 minutos.</p>
+      <p class="body-text">No es lectura pasiva. Es <strong>cazar insights bajo presión</strong>. Activación cayó 34%. Onboarding subió a 14 minutos. ¿Hay conexión? El participante explora, marca, conecta.</p>
+
+      <div class="case-callout">
+        <div class="lbl">Por qué móvil</div>
+        <div class="text">Los dashboards corporativos suelen vivir en pantallas grandes y son ilegibles en celular. Aquí el rediseño es deliberado: data que cabe en el pulgar. Una decisión a la vez. Eso obliga a pensar en lo importante, no en todo.</div>
+      </div>
+
+      <p class="body-text" style="margin-top: 20px;">Si el participante encuentra el insight a tiempo, gana <strong>XP doble</strong>. Si no, recibe pista del mentor (chat bot) y reintenta. <strong>Equivocarse no penaliza</strong>: enseña.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 09 · JUEVES BATTLE 1V1 -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner split right">
+    <div class="text-col">
+      <span class="day-anchor jueves">Jueves 17:45 PM · 12 min</span>
+      <span class="opera-tag">Retar</span>
+      <h2 class="section-title" style="margin-top: 20px;">Battle 1v1 asincrónico.</h2>
+      <p class="body-text">Jueves al final del día. La app le envía push: <strong>"Daniel de Selección México te retó al Battle."</strong></p>
+      <p class="body-text">El participante recibe pareja aleatoria del equipo. Cada uno tiene que <strong>grabar un pitch de 90 segundos</strong> defendiendo su diagnóstico de la fuga + plan de acción. Los dos pitches se cruzan. La AI evalúa claridad, rigor y factibilidad.</p>
+
+      <div class="case-callout">
+        <div class="lbl">Por qué Battle 1v1 y no presentación grupal</div>
+        <div class="text">En presentaciones grupales se esconden los que no preparan. En el Battle 1v1, no hay donde esconderse: tu pitch o el de tu rival. Eso fuerza preparación real. Y la rivalidad sana entre selecciones es exactamente la mecánica del Mundial Digital del Bootcamp, sostenida 6 meses.</div>
+      </div>
+
+      <p class="body-text" style="margin-top: 20px;">Defender una decisión es <strong>la forma más rápida de consolidar aprendizaje</strong>. Cuando tienes que articular por qué crees lo que crees, descubres qué realmente entiendes y qué solo memorizaste.</p>
+    </div>
+
+    <div class="phone-col">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="status-bar"><span>17:45</span><span class="icons">●●●</span></div>
+          <div class="nav-bar">
+            <div class="back">←</div>
+            <div class="title">Jueves · Retar</div>
+            <div class="right"></div>
+          </div>
+          <div class="content">
+            <div class="battle-arena">
+              <div class="title-banner">⚔️ BATTLE 1V1</div>
+              <h2>Defiende tu diagnóstico</h2>
+            </div>
+            <div class="battle-row">
+              <div class="battle-fighter">
+                <div class="avatar">M</div>
+                <div class="nm">María (tú)</div>
+                <div class="team">Selección Chile</div>
+              </div>
+              <div class="battle-vs">VS</div>
+              <div class="battle-fighter">
+                <div class="avatar" style="background: linear-gradient(135deg, #4A4A4A, #2A2A2A);">D</div>
+                <div class="nm">Daniel</div>
+                <div class="team">Selección México</div>
+              </div>
+            </div>
+            <div class="battle-prompt-box">
+              <div class="lbl">EL RETO</div>
+              <div class="q">Graba un pitch de 90 segundos defendiendo tu diagnóstico. AI evaluará claridad, rigor y factibilidad.</div>
+            </div>
+            <div class="record-button">
+              <span class="ic">🎙</span>
+            </div>
+            <div class="record-info">
+              <div class="timer">01:30</div>
+              <div class="max">Máximo 90 segundos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 10 · VIERNES BOSS LEVEL -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner split">
+    <div class="phone-col">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="status-bar"><span>15:20</span><span class="icons">●●●</span></div>
+          <div class="nav-bar">
+            <div class="back">←</div>
+            <div class="title">Viernes · Boss Level</div>
+            <div class="right"></div>
+          </div>
+          <div class="content">
+            <div class="boss-hero">
+              <div class="lbl">⚡ BOSS LEVEL · SEMANA 1</div>
+              <h2>Encuentra una fuga real</h2>
+              <div class="reward">
+                <div class="item"><div class="v">+100</div><div class="l">XP</div></div>
+                <div class="item"><div class="v">🏹</div><div class="l">Cazador</div></div>
+                <div class="item"><div class="v">48h</div><div class="l">Plazo</div></div>
+              </div>
+            </div>
+            <div class="briefing-box">
+              <div class="lbl">BRIEFING</div>
+              <p>En tu plaza de Juntos+, encuentra una <strong>fuga de funnel real</strong> de las últimas 2 semanas.</p>
+              <p>Sube screenshot del dashboard, identifica la fuga, propone diagnóstico y siguiente acción.</p>
+            </div>
+            <div class="upload-area">
+              <div class="ic">📎</div>
+              <div class="ttl">Sube screenshot del dashboard</div>
+              <div class="sub">PNG, JPG o PDF</div>
+            </div>
+            <button class="next-btn kof">Enviar a mentor</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-col">
+      <span class="day-anchor viernes">Viernes 15:20 PM · 15 min</span>
+      <span class="opera-tag">Aterrizar</span>
+      <h2 class="section-title" style="margin-top: 20px;">Boss Level: aplicado a TU plaza.</h2>
+      <p class="body-text">Viernes a media tarde. <strong>Aquí está el momento más importante de la semana.</strong></p>
+      <p class="body-text">El reto deja de ser sobre Treinta. Ahora es sobre <strong>la plaza real del participante en Juntos+</strong>. La consigna: "Encuentra una fuga de funnel real de las últimas 2 semanas. Sube el screenshot. Propone diagnóstico. Define la siguiente acción."</p>
+
+      <div class="case-callout">
+        <div class="lbl">El gran principio de la Academy</div>
+        <div class="text">Lo que se aprende el lunes con Treinta, el viernes se aplica con datos propios. Cada Boss Level convierte aprendizaje teórico en <strong>acción medible en operación</strong>. Mentor dedicado da feedback en 48 horas — no es comentario automatizado, es feedback real de operador real.</div>
+      </div>
+
+      <p class="body-text" style="margin-top: 20px;">Recompensas: <strong>+100 XP, badge "Cazador de Fugas"</strong>, posición en la liga. Y lo más importante: una mejora aplicada a la operación real, no solo conocimiento abstracto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 11 · LA APP DESDE DENTRO (HOME + WORLDS) -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner">
+    <span class="chapter-num">05 · La app desde dentro</span>
+    <h1 class="chapter-title">Home, Path, Mundo, Liga.</h1>
+    <p class="lede">Las cuatro pantallas centrales que el equipo usa todos los días para <strong>orientarse, avanzar y competir</strong>. Cada una optimizada para móvil, para sesiones de 5–12 minutos.</p>
+
+    <div class="screens-grid" style="grid-template-columns: repeat(4, 1fr); gap: 24px;">
+
+      <!-- HOME -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+            <div class="content">
+              <div class="home-greeting">
+                <div class="hello">Buenos días,</div>
+                <div class="name">María 👋</div>
+              </div>
+              <div class="home-stats">
+                <div class="stat-c"><div class="val">2,840</div><div class="lbl">XP</div></div>
+                <div class="stat-c"><div class="val">N3</div><div class="lbl">Titular</div></div>
+                <div class="stat-c"><div class="val">5d</div><div class="lbl">Racha</div></div>
+              </div>
+              <div class="path-section-title">Tu path · 6 mundos</div>
+              <div class="world-card completed">
+                <div class="num">✓</div>
+                <div class="info">
+                  <div class="nm">M1 · Adquisición</div>
+                  <div class="sub">Certificado · 4/4 Boss Levels</div>
+                </div>
+              </div>
+              <div class="world-card active">
+                <div class="num">2</div>
+                <div class="info">
+                  <div class="nm">M2 · Retención</div>
+                  <div class="sub">Semana 2 · Caso Mercado Libre</div>
+                  <div class="progress-mini"><div class="fill" style="width: 35%"></div></div>
+                </div>
+              </div>
+              <div class="world-card locked">
+                <div class="num">3</div>
+                <div class="info">
+                  <div class="nm">M3 · Customer Behavior</div>
+                  <div class="sub">Inicia 1 Agosto</div>
+                </div>
+                <div class="lock-ic">🔒</div>
+              </div>
+            </div>
+            <div class="bottom-nav">
+              <div class="item active"><span class="ic">🏠</span><span>Path</span></div>
+              <div class="item"><span class="ic">🏆</span><span>Liga</span></div>
+              <div class="item"><span class="ic">🎯</span><span>Retos</span></div>
+              <div class="item"><span class="ic">👤</span><span>Perfil</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Home · Path completo</div>
+        <div class="screen-desc">Vista de los 6 mundos. Mundo activo destacado, próximos bloqueados.</div>
+      </div>
+
+      <!-- WORLD VIEW -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+            <div class="nav-bar">
+              <div class="back">←</div>
+              <div class="title">Mundo 1</div>
+              <div class="right"></div>
+            </div>
+            <div class="content">
+              <div class="world-hero">
+                <div class="label">🚀 MUNDO 1 · JUNIO 2026</div>
+                <div class="name">Adquisición acelerada</div>
+                <div class="desc">Diseñar funnels B2B con CAC controlado.</div>
+                <div class="meta">
+                  <div class="meta-item"><div class="v">4</div><div class="l">Unidades</div></div>
+                  <div class="meta-item"><div class="v">4</div><div class="l">Boss</div></div>
+                  <div class="meta-item"><div class="v">500</div><div class="l">XP</div></div>
+                </div>
+              </div>
+              <div class="path-section-title">Las 4 unidades</div>
+              <div class="unit-card completed">
+                <div class="week-c">S1</div>
+                <div class="info">
+                  <div class="ttl">Funnel B2B · Treinta</div>
+                  <div class="meta-line">5 retos</div>
+                </div>
+                <div class="badge">✓</div>
+              </div>
+              <div class="unit-card active">
+                <div class="week-c">S2</div>
+                <div class="info">
+                  <div class="ttl">Segmentación · ML</div>
+                  <div class="meta-line">3 de 5 retos</div>
+                </div>
+                <div class="badge">●</div>
+              </div>
+              <div class="unit-card">
+                <div class="week-c">S3</div>
+                <div class="info">
+                  <div class="ttl">Unit Economics · Nubank</div>
+                  <div class="meta-line">Inicia lunes</div>
+                </div>
+                <div class="badge">—</div>
+              </div>
+              <div class="unit-card">
+                <div class="week-c">S4</div>
+                <div class="info">
+                  <div class="ttl">Referidos · Frubana</div>
+                  <div class="meta-line">Próxima</div>
+                </div>
+                <div class="badge">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Vista de mundo</div>
+        <div class="screen-desc">4 unidades semanales con caso real ancla.</div>
+      </div>
+
+      <!-- LIGA -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+            <div class="nav-bar">
+              <div class="back">←</div>
+              <div class="title">Liga del Mundial</div>
+              <div class="right"></div>
+            </div>
+            <div class="content">
+              <div class="liga-header">
+                <div class="lbl">🏆 SELECCIONES · SEMANA 6</div>
+                <h2>Liga del Mundial Digital</h2>
+              </div>
+              <div class="liga-podium">
+                <div class="place">
+                  <div class="avatar" style="background: #C0C0C0">🇦🇷</div>
+                  <div class="pillar silver">
+                    <div class="rank">2°</div>
+                    <div class="nm">Argentina</div>
+                    <div class="xp">12,840</div>
+                  </div>
+                </div>
+                <div class="place">
+                  <div class="avatar" style="background: var(--gold)">🇧🇷</div>
+                  <div class="pillar gold">
+                    <div class="rank">1°</div>
+                    <div class="nm">Brasil</div>
+                    <div class="xp">14,205</div>
+                  </div>
+                </div>
+                <div class="place">
+                  <div class="avatar" style="background: #CD7F32">🇲🇽</div>
+                  <div class="pillar bronze">
+                    <div class="rank">3°</div>
+                    <div class="nm">México</div>
+                    <div class="xp">11,920</div>
+                  </div>
+                </div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">4</div><div class="av">🇨🇴</div>
+                <div class="nm">Colombia</div>
+                <div class="xp-val">10,890</div>
+              </div>
+              <div class="ranked-row me">
+                <div class="rank">5</div><div class="av">🇨🇱</div>
+                <div class="nm">Chile (tu sel.)</div>
+                <div class="xp-val">10,440</div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">6</div><div class="av">🇵🇪</div>
+                <div class="nm">Perú</div>
+                <div class="xp-val">9,820</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Liga de Selecciones</div>
+        <div class="screen-desc">La liga del Bootcamp continúa los 6 meses.</div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+            <div class="content">
+              <div class="profile-header">
+                <div class="av">M</div>
+                <div class="nm">María Rodríguez</div>
+                <div class="role">Selección Chile · Operacional</div>
+                <div class="level-pill">⭐ Nivel 3 · Titular</div>
+              </div>
+              <div class="profile-stats">
+                <div class="stat-c"><div class="val">2,840</div><div class="lbl">XP</div></div>
+                <div class="stat-c"><div class="val">5</div><div class="lbl">Badges</div></div>
+                <div class="stat-c"><div class="val">12</div><div class="lbl">Boss W</div></div>
+              </div>
+              <div class="path-section-title">Mis badges</div>
+              <div class="badge-grid">
+                <div class="badge-item gold">🏹</div>
+                <div class="badge-item gold">🎯</div>
+                <div class="badge-item gold">📊</div>
+                <div class="badge-item gold">💰</div>
+                <div class="badge-item gold">🤝</div>
+                <div class="badge-item locked">🔒</div>
+                <div class="badge-item locked">🔒</div>
+                <div class="badge-item locked">🔒</div>
+              </div>
+              <div class="path-section-title">Certificaciones</div>
+              <div class="unit-card completed">
+                <div class="week-c">M1</div>
+                <div class="info">
+                  <div class="ttl">Adquisición</div>
+                  <div class="meta-line">Junio 2026</div>
+                </div>
+                <div class="badge">✓</div>
+              </div>
+            </div>
+            <div class="bottom-nav">
+              <div class="item"><span class="ic">🏠</span><span>Path</span></div>
+              <div class="item"><span class="ic">🏆</span><span>Liga</span></div>
+              <div class="item"><span class="ic">🎯</span><span>Retos</span></div>
+              <div class="item active"><span class="ic">👤</span><span>Perfil</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Perfil personal</div>
+        <div class="screen-desc">XP, badges, certificaciones del participante.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 12 · MOMENTOS CLAVE: NOTIF + CERT + TOWN HALL -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner">
+    <span class="chapter-num">06 · Momentos clave</span>
+    <h1 class="chapter-title">Notificaciones, certificación, Town Hall.</h1>
+    <p class="lede">Más allá del flujo cotidiano, hay tres momentos que sostienen el engagement por 6 meses: <strong>el push contextual que vuelve a llamar al equipo</strong>, <strong>la celebración al cerrar un mundo</strong>, y <strong>el Town Hall mensual donde el liderazgo de KOF ve el trabajo top.</strong></p>
+
+    <div class="screens-grid" style="grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 50px;">
+
+      <!-- NOTIFICATION -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="notif-stage">
+              <div class="lock-time">
+                <div class="h">19:42</div>
+                <div class="d">Jueves, 18 de Junio</div>
+              </div>
+              <div class="notif-card">
+                <div class="head">
+                  <div class="ic-app">DG</div>
+                  <div class="app-name">Digital Growth Academy</div>
+                  <div class="time">ahora</div>
+                </div>
+                <div class="ttl">Tu Boss Level cierra en 6 horas</div>
+                <div class="body">No olvides subir tu evidencia del Boss Level Semana 1.</div>
+              </div>
+              <div class="notif-card">
+                <div class="head">
+                  <div class="ic-app">DG</div>
+                  <div class="app-name">Digital Growth Academy</div>
+                  <div class="time">15min</div>
+                </div>
+                <div class="ttl">Selección México te alcanzó</div>
+                <div class="body">Chile estaba 3° hace 2 días. Hoy quedaron 4°. ¿Recuperan posición?</div>
+              </div>
+              <div class="notif-card">
+                <div class="head">
+                  <div class="ic-app">DG</div>
+                  <div class="app-name">Digital Growth Academy</div>
+                  <div class="time">1h</div>
+                </div>
+                <div class="ttl">Daniel te retó al Battle</div>
+                <div class="body">Tu rival aleatorio del Battle grabó su pitch. Tu turno. 90s.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Notificaciones contextuales</div>
+        <div class="screen-desc">Push inteligente: deadline, ranking, retos del rival. Llama al equipo de vuelta a la app en momentos críticos.</div>
+      </div>
+
+      <!-- CERTIFICATION -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="cert-stage">
+              <div class="cert-medal">🏆</div>
+              <div class="label">Certificación obtenida</div>
+              <h2>Mundo 1 · Adquisición</h2>
+              <div class="desc">Certificación Digital Growth Academy KOF · Mundo Adquisición · 2026</div>
+              <div class="name-line">María Rodríguez</div>
+              <div class="meta-line">28 de Junio 2026 · Selección Chile</div>
+              <div class="cert-actions">
+                <button class="secondary">Descargar</button>
+                <button class="primary">LinkedIn</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Certificación de mundo</div>
+        <div class="screen-desc">Al completar los 4 Boss Levels del mundo. Reconocimiento real, compartible en LinkedIn.</div>
+      </div>
+
+      <!-- TOWN HALL -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+            <div class="nav-bar">
+              <div class="back">←</div>
+              <div class="title">Town Hall · Junio</div>
+              <div class="right"></div>
+            </div>
+            <div class="content">
+              <div class="liga-header">
+                <div class="lbl">🎤 TOWN HALL MENSUAL</div>
+                <h2>5 iniciativas top</h2>
+              </div>
+              <div class="briefing-box">
+                <div class="lbl">EN VIVO · 30 MIN</div>
+                <p>Las 5 iniciativas top del Mundo 1 se presentan al equipo completo de KOF.</p>
+              </div>
+              <div class="path-section-title">Las 5 seleccionadas</div>
+              <div class="ranked-row">
+                <div class="rank">1</div><div class="av">🇧🇷</div>
+                <div class="nm">Lucas · Referido B2B</div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">2</div><div class="av">🇦🇷</div>
+                <div class="nm">Sofía · Segmentación</div>
+              </div>
+              <div class="ranked-row me">
+                <div class="rank">3</div><div class="av">🇨🇱</div>
+                <div class="nm">María (tú) · Cohort</div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">4</div><div class="av">🇲🇽</div>
+                <div class="nm">Carlos · Lifecycle</div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">5</div><div class="av">🇨🇴</div>
+                <div class="nm">Andrea · Modelo UE</div>
+              </div>
+              <button class="next-btn kof">Unirme al Town Hall</button>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Town Hall mensual</div>
+        <div class="screen-desc">30 min cada último viernes. Las 5 iniciativas top del mes presentadas al liderazgo de KOF.</div>
+      </div>
+
+    </div>
+
+    <div class="key-fact" style="margin-top: 60px;">
+      <div class="lbl">El bucle que sostiene 6 meses</div>
+      <div class="text">Push lleva al participante a abrir la app. Boss Level lo aplica a operación real. Town Hall hace visible el mejor trabajo. Certificación cierra cada mundo con reconocimiento. <strong>El motor no es la disciplina del participante. Es el diseño del bucle.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 13 · CRONOGRAMA + CIERRE -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner">
+    <span class="chapter-num">07 · Cronograma</span>
+    <h1 class="chapter-title">8 meses. 6 mundos. 1 transformación.</h1>
+    <p class="lede">Pre-producción en abril–mayo. Bootcamp 1, 2 y 3 de junio. Lanzamiento de Mundo 1 la semana del 8 de junio. Cierre con certificación final en diciembre 2026.</p>
+
+    <div class="timeline">
+      <div class="timeline-track">
+        <div class="timeline-month prep">
+          <div class="bar">Pre</div>
+          <div class="label">Pre-producción</div>
+          <div class="month">Abril–Mayo</div>
+        </div>
+        <div class="timeline-month bootcamp">
+          <div class="bar">M1</div>
+          <div class="label">Bootcamp + Mundo 1 · Adquisición</div>
+          <div class="month">Junio 2026</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M2</div>
+          <div class="label">Retención sistémica</div>
+          <div class="month">Julio</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M3</div>
+          <div class="label">Customer Behavior</div>
+          <div class="month">Agosto</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M4</div>
+          <div class="label">Demand Gen B2B2C</div>
+          <div class="month">Septiembre</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M5</div>
+          <div class="label">Phygital</div>
+          <div class="month">Octubre</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M6</div>
+          <div class="label">Experimentación</div>
+          <div class="month">Noviembre</div>
+        </div>
+        <div class="timeline-month cierre">
+          <div class="bar">★</div>
+          <div class="label">Cierre y certificación final</div>
+          <div class="month">Diciembre</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 14 · CLOSING -->
+<!-- ============================================ -->
+<section class="stage closing">
+  <div class="stage-inner" style="text-align: center;">
+    <h1>Eso es la Academy.</h1>
+    <div class="tagline">No un curso online. Un juego que enseña, en el celular del operador, durante 6 meses, sobre casos reales.</div>
+
+    <div class="key-list">
+      <div class="item">
+        <div class="v">6</div>
+        <div class="l">Mundos temáticos<br>cubriendo los 5 pilares del RFP + adquisición</div>
+      </div>
+      <div class="item">
+        <div class="v">9</div>
+        <div class="l">Formatos interactivos<br>cero videos pasivos, cero quizzes</div>
+      </div>
+      <div class="item">
+        <div class="v">120+</div>
+        <div class="l">Retos en el path<br>cada uno aplicado a operación real</div>
+      </div>
+      <div class="item">
+        <div class="v">7</div>
+        <div class="l">Certificaciones digitales<br>6 de mundo + 1 integrada al cierre</div>
+      </div>
+      <div class="item">
+        <div class="v">80+</div>
+        <div class="l">Participantes de KOF<br>Gerencial + Operacional con paths diferenciados</div>
+      </div>
+      <div class="item">
+        <div class="v">100%</div>
+        <div class="l">En el celular del operador<br>compatible con la operación cotidiana</div>
+      </div>
+    </div>
+
+    <div class="signature" style="font-size: 14px; color: rgba(255,255,255,0.5); letter-spacing: 1px;">
+      Growth Rockstar · Abril 2026 · Documento confidencial
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
