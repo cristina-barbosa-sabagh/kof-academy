@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Growth Academy · KOF · Edición Circle · Pitch 15 min</title>
+<style>
+  :root {
+    --kof-red: #C8102E;
+    --kof-red-dark: #A00C24;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --muted-light: #A0A0A0;
+    --bg-cream: #FEFCF6;
+    --bg-warm: #F8F4EA;
+    --bg-card: #FFFFFF;
+    --border: #E8E2D0;
+    --border-strong: #D4CCB5;
+    --gold: #D4AF37;
+    --gold-soft: #F4E4A6;
+    --green: #16A085;
+    --green-soft: #D4F1E8;
+    --red-soft: #FCE4E8;
+    --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.04);
+    --shadow-md: 0 4px 16px rgba(26, 26, 26, 0.08);
+    --shadow-lg: 0 8px 32px rgba(26, 26, 26, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-warm);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  /* =========== STAGE / CHAPTERS =========== */
+  .stage {
+    min-height: 100vh;
+    padding: 80px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stage-inner {
+    max-width: 1320px;
+    width: 100%;
+  }
+
+  .chapter-num {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 4px 12px;
+    background: var(--red-soft);
+    border-radius: 100px;
+  }
+
+  h1.chapter-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -1px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  h2.section-title {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  h3.sub-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .lede {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 640px;
+  }
+  .lede strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  p.body-text {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  p.body-text strong { color: var(--ink); font-weight: 700; }
+
+  /* =========== HERO =========== */
+  .hero {
+    background: var(--ink);
+    color: white;
+    min-height: 100vh;
+  }
+  .hero .stage-inner {
+    text-align: center;
+  }
+  .hero .meta-top {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--kof-red);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: 96px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .hero .tagline {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 60px;
+    font-weight: 300;
+  }
+  .hero .stats {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin: 60px 0;
+  }
+  .hero .stat {
+    text-align: center;
+  }
+  .hero .stat .v {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: -1px;
+  }
+  .hero .stat .l {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .hero .signature {
+    margin-top: 80px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+  }
+  .hero .signature strong {
+    color: white;
+    font-weight: 700;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  /* =========== TWO-COLUMN LAYOUT =========== */
+  .split {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .split.right {
+    grid-template-columns: 1fr 380px;
+  }
+  .split.right .text-col { order: 1; }
+  .split.right .phone-col { order: 2; }
+
+  .text-col h2 {
+    margin-bottom: 20px;
+  }
+
+  /* =========== CARDS / LISTS =========== */
+  .compromisos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .compromiso {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .compromiso .num {
+    display: inline-block;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--kof-red);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  .compromiso .ttl {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .compromiso .desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* =========== OPERA WEEK =========== */
+  .week {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .day {
+    background: white;
+    border-radius: 14px;
+    padding: 22px 16px;
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+  }
+  .day.boss {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+  .day.boss .day-name { color: var(--gold); }
+  .day .day-name {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .day .day-num {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .day.boss .day-num { color: var(--gold); }
+  .day .opera-letter {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .day.boss .opera-letter { color: white; }
+  .day .opera-word {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .day.boss .opera-word { color: rgba(255,255,255,0.85); }
+  .day .format {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    min-height: 60px;
+  }
+  .day.boss .format {
+    color: rgba(255,255,255,0.65);
+    border-color: rgba(255,255,255,0.15);
+  }
+  .day .duration {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 10px;
+    background: var(--bg-warm);
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .day.boss .duration {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+
+  /* =========== 6 WORLDS =========== */
+  .worlds {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 44px;
+  }
+  .world {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .world.first {
+    border: 2px solid var(--kof-red);
+    background: var(--red-soft);
+  }
+  .world .month-pill {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .world .num {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: var(--bg-warm);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .world.first .num {
+    background: var(--kof-red);
+    color: white;
+  }
+  .world .nm {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .world .cap {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .world .case {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--kof-red);
+    border-top: 1px dashed var(--border-strong);
+    padding-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .world.first .case {
+    border-top-color: var(--kof-red);
+  }
+
+  /* =========== KEY FACT BOX =========== */
+  .key-fact {
+    background: var(--ink);
+    color: white;
+    padding: 32px 36px;
+    border-radius: 16px;
+    margin-top: 32px;
+  }
+  .key-fact .lbl {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .key-fact .text {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.4;
+  }
+
+  /* =========== INSIGHT BOX =========== */
+  .insight-box {
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin-top: 18px;
+  }
+  .insight-box .lbl {
+    font-size: 11px;
+    font-weight: 800;
+    color: #8B7500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .insight-box .text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* =========== TIMELINE =========== */
+  .timeline {
+    margin-top: 40px;
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    border: 1px solid var(--border);
+  }
+  .timeline-track {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .timeline-month {
+    text-align: center;
+  }
+  .timeline-month .bar {
+    height: 50px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .timeline-month.prep .bar {
+    background: var(--bg-warm);
+    border: 2px dashed var(--border-strong);
+    color: var(--muted);
+  }
+  .timeline-month.bootcamp .bar {
+    background: var(--kof-red);
+    color: white;
+    border: 2px solid var(--kof-red-dark);
+  }
+  .timeline-month.world .bar {
+    background: white;
+    border: 2px solid var(--kof-red);
+    color: var(--kof-red);
+  }
+  .timeline-month.cierre .bar {
+    background: var(--gold);
+    color: white;
+    border: 2px solid var(--gold);
+  }
+  .timeline-month .label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .timeline-month .month {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* =========== STATS GRID =========== */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .stat-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-card .v {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .stat-card .l {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* =========== DAY-BY-DAY MUNDO ADQ =========== */
+  .day-anchor {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--ink);
+    color: white;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .day-anchor.lunes { background: var(--ink); }
+  .day-anchor.martes { background: var(--ink); }
+  .day-anchor.miercoles { background: var(--ink); }
+  .day-anchor.jueves { background: var(--ink); }
+  .day-anchor.viernes { background: var(--kof-red); }
+  
+  .opera-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 10px;
+    background: var(--gold-soft);
+    color: #8B7500;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .case-callout {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--kof-red);
+    padding: 14px 18px;
+    margin-top: 16px;
+    border-radius: 4px;
+  }
+  .case-callout .lbl {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--kof-red);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  .case-callout .text {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* =========== APP SCREENS GRID =========== */
+  .screens-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 24px;
+    margin-top: 50px;
+  }
+  .screen-cell {
+    text-align: center;
+  }
+  .screen-cell .screen-label {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .screen-cell .screen-desc {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* =========== SECTION DIVIDER =========== */
+  .section-divider {
+    margin: 60px 0;
+    text-align: center;
+  }
+  .section-divider .line {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: var(--kof-red);
+  }
+
+  /* =========== CLOSING =========== */
+  .closing {
+    background: var(--ink);
+    color: white;
+  }
+  .closing h1 {
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .closing .tagline {
+    font-size: 22px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+  .closing .key-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+  .closing .key-list .item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .closing .key-list .item .v {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--kof-red);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .closing .key-list .item .l {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  /* =========== PHONE FRAME =========== */
+  .phone {
+    width: 320px;
+    height: 660px;
+    background: var(--ink);
+    border-radius: 36px;
+    padding: 8px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    margin: 0 auto;
+  }
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 18px; left: 50%;
+    transform: translateX(-50%);
+    width: 90px; height: 22px;
+    background: var(--ink);
+    border-radius: 100px;
+    z-index: 10;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    background: var(--bg-cream);
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* =========== INTERNAL PHONE COMPONENTS =========== */
+  .status-bar {
+    height: 44px;
+    padding: 0 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .status-bar .icons { display: flex; gap: 4px; }
+  .nav-bar {
+    height: 56px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar .back {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+    font-size: 18px;
+  }
+  .nav-bar .title { font-size: 14px; font-weight: 600; }
+  .nav-bar .right { width: 32px; }
+  .bottom-nav {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 64px;
+    background: white;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 8px;
+  }
+  .bottom-nav .item {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 6px 12px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .bottom-nav .item.active { color: var(--kof-red); }
+  .bottom-nav .item .ic { font-size: 18px; }
+  .content {
+    flex: 1;
+    overflow: hidden;
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+
+  /* SPLASH */
+  .splash {
+    background: var(--ink);
+    color: white;
+    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px;
+    text-align: center;
+  }
+  .splash .logo-mark {
+    width: 80px; height: 80px;
+    background: var(--kof-red);
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: 800;
+    color: white;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 32px rgba(200, 16, 46, 0.3);
+  }
+  .splash .brand { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 6px; }
+  .splash .tag { font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-bottom: 80px; }
+  .splash .loading { display: flex; gap: 6px; }
+  .splash .loading span { width: 6px; height: 6px; background: var(--kof-red); border-radius: 50%; }
+
+  /* HOME */
+  .home-greeting { padding: 16px 0; margin-bottom: 12px; }
+  .home-greeting .hello { font-size: 13px; color: var(--muted); }
+  .home-greeting .name { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; margin-top: 2px; }
+  .home-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .home-stats .stat-c { background: white; padding: 12px 8px; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
+  .home-stats .stat-c .val { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .home-stats .stat-c .lbl { font-size: 9px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .path-section-title {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+  }
+  .world-card {
+    background: white; border-radius: 14px; padding: 14px;
+    margin-bottom: 10px; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px; position: relative;
+  }
+  .world-card.active { border: 2px solid var(--kof-red); box-shadow: var(--shadow-sm); }
+  .world-card.locked { opacity: 0.5; }
+  .world-card .num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--ink); font-size: 14px; flex-shrink: 0;
+  }
+  .world-card.active .num { background: var(--kof-red); color: white; }
+  .world-card.completed .num { background: var(--green); color: white; }
+  .world-card .info { flex: 1; }
+  .world-card .nm { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .world-card .sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .world-card .progress-mini {
+    height: 3px; background: var(--bg-warm); border-radius: 100px;
+    margin-top: 6px; overflow: hidden;
+  }
+  .world-card .progress-mini .fill { height: 100%; background: var(--kof-red); border-radius: 100px; }
+  .world-card .lock-ic { color: var(--muted-light); font-size: 14px; }
+
+  /* WORLD VIEW */
+  .world-hero {
+    background: linear-gradient(135deg, var(--kof-red) 0%, var(--kof-red-dark) 100%);
+    color: white; padding: 24px 16px;
+    border-radius: 0 0 24px 24px;
+    margin: -16px -16px 16px -16px;
+  }
+  .world-hero .label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; }
+  .world-hero .name { font-size: 22px; font-weight: 800; margin-top: 4px; letter-spacing: -0.3px; }
+  .world-hero .desc { font-size: 12px; opacity: 0.85; margin-top: 6px; }
+  .world-hero .meta { display: flex; gap: 12px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+  .world-hero .meta-item { flex: 1; }
+  .world-hero .meta-item .v { font-size: 14px; font-weight: 700; }
+  .world-hero .meta-item .l { font-size: 9px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+  .unit-card {
+    background: white; border-radius: 12px; padding: 14px;
+    margin-bottom: 8px; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .unit-card .week-c {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--muted); font-size: 11px; flex-shrink: 0;
+  }
+  .unit-card.completed .week-c { background: var(--green); color: white; }
+  .unit-card.active .week-c { background: var(--kof-red); color: white; }
+  .unit-card .info { flex: 1; }
+  .unit-card .ttl { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .unit-card .meta-line { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .unit-card .badge {
+    font-size: 9px; font-weight: 700; padding: 3px 8px;
+    border-radius: 100px; background: var(--bg-warm); color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .unit-card.active .badge { background: var(--kof-red); color: white; }
+  .unit-card.completed .badge { background: var(--green); color: white; }
+
+  /* UNIT VIEW */
+  .unit-hero { padding: 16px 0 12px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+  .unit-hero .breadcrumb { font-size: 10px; color: var(--kof-red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .unit-hero .ttl { font-size: 18px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; }
+  .unit-hero .case { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  .unit-hero .case strong { color: var(--ink); }
+  .day-card {
+    background: white; border-radius: 12px; padding: 12px;
+    margin-bottom: 8px; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .day-card.completed { background: var(--green-soft); border-color: var(--green); }
+  .day-card.active { border-color: var(--kof-red); background: var(--red-soft); }
+  .day-card .day-mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 10px; color: var(--ink); flex-shrink: 0;
+  }
+  .day-card.active .day-mark { background: var(--kof-red); color: white; }
+  .day-card.completed .day-mark { background: var(--green); color: white; }
+  .day-card .info { flex: 1; }
+  .day-card .ttl { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .day-card .sub { font-size: 10px; color: var(--muted); margin-top: 1px; }
+  .day-card .timing {
+    font-size: 9px; font-weight: 600; padding: 3px 8px;
+    border-radius: 100px; background: var(--bg-warm); color: var(--muted);
+  }
+  .day-card.active .timing { background: var(--kof-red); color: white; }
+  .day-card.completed .timing { background: var(--green); color: white; }
+
+  /* VIDEO CAMERA ROLL */
+  .video-stage {
+    background: var(--ink); border-radius: 16px;
+    aspect-ratio: 9/16; width: 100%; max-height: 320px;
+    position: relative; overflow: hidden;
+    margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-stage::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+  }
+  .video-stage .play-btn {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink); font-size: 22px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3); z-index: 2;
+  }
+  .video-stage .speaker {
+    position: absolute; bottom: 14px; left: 14px; right: 14px;
+    color: white; z-index: 2;
+  }
+  .video-stage .speaker .name { font-size: 13px; font-weight: 700; }
+  .video-stage .speaker .role { font-size: 10px; opacity: 0.8; margin-top: 2px; }
+  .video-stage .duration {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+    color: white; padding: 3px 8px; border-radius: 100px;
+    font-size: 10px; font-weight: 600; z-index: 2;
+  }
+  .video-question {
+    background: var(--gold-soft); border: 1px solid var(--gold);
+    border-radius: 12px; padding: 12px; margin-bottom: 8px;
+  }
+  .video-question .q-label {
+    font-size: 9px; color: #8B7500; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .video-question .q-text { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+  .next-btn {
+    width: 100%; padding: 12px; background: var(--ink);
+    color: white; border: none; border-radius: 12px;
+    font-size: 13px; font-weight: 700; margin-top: 10px; text-align: center;
+  }
+  .next-btn.kof { background: var(--kof-red); }
+
+  /* BRANCHING */
+  .branching-prompt {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px; margin-bottom: 14px;
+  }
+  .branching-prompt .role {
+    font-size: 9px; color: var(--kof-red); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .branching-prompt .scenario { font-size: 12px; color: var(--ink); margin-top: 6px; line-height: 1.5; }
+  .branching-prompt .scenario strong { font-weight: 700; }
+  .question-banner { text-align: center; margin: 16px 0 12px; }
+  .question-banner .label {
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .question-banner .q { font-size: 14px; font-weight: 800; color: var(--ink); }
+  .option-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 12px; margin-bottom: 8px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .option-card.selected { border: 2px solid var(--kof-red); background: var(--red-soft); }
+  .option-card .opt-letter {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: var(--ink); flex-shrink: 0;
+  }
+  .option-card.selected .opt-letter { background: var(--kof-red); color: white; }
+  .option-card .opt-text { font-size: 11px; line-height: 1.4; color: var(--ink-soft); }
+
+  /* DASHBOARD HUNTING */
+  .dash-header { background: var(--ink); color: white; padding: 14px; border-radius: 12px; margin-bottom: 12px; }
+  .dash-header .ttl { font-size: 13px; font-weight: 700; }
+  .dash-header .sub { font-size: 10px; opacity: 0.7; margin-top: 2px; }
+  .dash-header .timer {
+    margin-top: 10px; display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1); padding: 6px 10px;
+    border-radius: 8px; width: fit-content;
+  }
+  .dash-header .timer .clock { font-size: 12px; }
+  .dash-header .timer .num { font-family: 'SF Mono', monospace; font-size: 12px; font-weight: 700; color: var(--gold); }
+  .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+  .metric-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 10px; cursor: pointer; }
+  .metric-card.flagged { border: 2px solid var(--kof-red); background: var(--red-soft); }
+  .metric-card .name { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .metric-card .val { font-size: 17px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+  .metric-card .delta { font-size: 10px; margin-top: 2px; font-weight: 600; }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--kof-red); }
+  .delta.flat { color: var(--muted); }
+  .insight-cta {
+    background: var(--gold-soft); border: 1px solid var(--gold);
+    border-radius: 12px; padding: 10px; text-align: center; margin-top: 8px;
+  }
+  .insight-cta .label {
+    font-size: 9px; color: #8B7500; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px;
+  }
+  .insight-cta .text { font-size: 11px; font-weight: 700; color: var(--ink); }
+
+  /* BATTLE 1V1 */
+  .battle-arena { text-align: center; padding: 16px 0; }
+  .battle-arena .title-banner {
+    font-size: 9px; color: var(--kof-red); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 2px;
+  }
+  .battle-arena h2 { font-size: 20px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+  .battle-row { display: flex; align-items: center; justify-content: space-between; margin: 24px 0 16px; }
+  .battle-fighter { text-align: center; flex: 1; }
+  .battle-fighter .avatar {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--kof-red), var(--kof-red-dark));
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 22px;
+    margin: 0 auto 8px;
+    border: 3px solid white; box-shadow: var(--shadow-md);
+  }
+  .battle-fighter .nm { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .battle-fighter .team {
+    font-size: 9px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-top: 1px;
+  }
+  .battle-vs { font-size: 18px; font-weight: 900; color: var(--kof-red); padding: 0 12px; }
+  .battle-prompt-box {
+    background: var(--ink); color: white; border-radius: 14px;
+    padding: 14px; margin-bottom: 14px;
+  }
+  .battle-prompt-box .lbl {
+    font-size: 9px; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 1px; font-weight: 700; margin-bottom: 6px;
+  }
+  .battle-prompt-box .q { font-size: 12px; line-height: 1.5; }
+  .record-button {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--kof-red); margin: 16px auto;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(200, 16, 46, 0.4); position: relative;
+  }
+  .record-button::after {
+    content: ''; position: absolute; inset: -8px;
+    border-radius: 50%; border: 2px solid var(--kof-red); opacity: 0.3;
+  }
+  .record-button .ic { color: white; font-size: 28px; }
+  .record-info { text-align: center; }
+  .record-info .timer { font-size: 22px; font-weight: 800; color: var(--ink); font-family: 'SF Mono', monospace; }
+  .record-info .max { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* BOSS LEVEL */
+  .boss-hero {
+    background: linear-gradient(135deg, var(--ink), #2A2A2A);
+    color: white; border-radius: 16px; padding: 18px;
+    margin-bottom: 14px; position: relative; overflow: hidden;
+  }
+  .boss-hero::before {
+    content: ''; position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, var(--kof-red) 0%, transparent 70%);
+    opacity: 0.6;
+  }
+  .boss-hero .lbl {
+    font-size: 9px; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 2px; font-weight: 800; margin-bottom: 6px; position: relative;
+  }
+  .boss-hero h2 { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 4px; position: relative; }
+  .boss-hero .reward {
+    display: flex; gap: 12px; margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15); position: relative;
+  }
+  .boss-hero .reward .item { flex: 1; }
+  .boss-hero .reward .v { font-size: 14px; font-weight: 800; color: var(--gold); }
+  .boss-hero .reward .l { font-size: 9px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
+  .briefing-box {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px; margin-bottom: 12px;
+  }
+  .briefing-box .lbl {
+    font-size: 9px; color: var(--kof-red); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .briefing-box p { font-size: 11px; line-height: 1.5; color: var(--ink-soft); margin-bottom: 6px; }
+  .upload-area {
+    background: var(--bg-warm); border: 2px dashed var(--border-strong);
+    border-radius: 12px; padding: 16px; text-align: center; margin-bottom: 12px;
+  }
+  .upload-area .ic { font-size: 28px; color: var(--muted-light); }
+  .upload-area .ttl { font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 6px; }
+  .upload-area .sub { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* SANDBOX */
+  .sandbox-canvas {
+    background: white; border-radius: 12px; padding: 14px;
+    border: 1px solid var(--border); margin-bottom: 12px; min-height: 200px;
+  }
+  .sandbox-step {
+    display: flex; align-items: center; gap: 8px; padding: 8px;
+    background: var(--bg-warm); border-radius: 8px; margin-bottom: 6px;
+  }
+  .sandbox-step .num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--kof-red); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800;
+  }
+  .sandbox-step .label { font-size: 11px; font-weight: 600; color: var(--ink); flex: 1; }
+  .sandbox-step .arrow { color: var(--muted-light); font-size: 14px; }
+  .sandbox-add {
+    background: white; border: 2px dashed var(--border-strong);
+    border-radius: 8px; padding: 10px; text-align: center;
+    color: var(--muted); font-size: 11px; font-weight: 600; cursor: pointer;
+  }
+
+  /* LIGA */
+  .liga-header {
+    text-align: center; padding: 14px 0; margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .liga-header .lbl {
+    font-size: 9px; color: var(--kof-red); text-transform: uppercase;
+    letter-spacing: 1.5px; font-weight: 800;
+  }
+  .liga-header h2 { font-size: 16px; font-weight: 800; margin-top: 4px; }
+  .liga-podium { display: flex; align-items: flex-end; justify-content: center; gap: 6px; margin-bottom: 16px; }
+  .liga-podium .place { text-align: center; flex: 1; max-width: 80px; }
+  .liga-podium .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--kof-red); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px; margin: 0 auto;
+    border: 2px solid white; box-shadow: var(--shadow-sm);
+  }
+  .liga-podium .nm { font-size: 9px; font-weight: 700; color: var(--ink); margin-top: 4px; }
+  .liga-podium .xp { font-size: 10px; font-weight: 800; color: var(--kof-red); }
+  .liga-podium .pillar {
+    background: var(--bg-warm); border-radius: 8px 8px 0 0;
+    margin-top: 6px; padding: 8px 4px 12px; border: 1px solid var(--border);
+  }
+  .liga-podium .pillar.gold { background: var(--gold-soft); border-color: var(--gold); height: 80px; }
+  .liga-podium .pillar.silver { background: #E8EAEC; height: 64px; }
+  .liga-podium .pillar.bronze { background: #F5DEB3; height: 50px; }
+  .liga-podium .pillar .rank { font-size: 14px; font-weight: 800; color: var(--ink); }
+  .ranked-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; background: white; border-radius: 10px;
+    margin-bottom: 6px; border: 1px solid var(--border);
+  }
+  .ranked-row.me { background: var(--red-soft); border-color: var(--kof-red); }
+  .ranked-row .rank { font-weight: 800; font-size: 12px; color: var(--muted); min-width: 18px; }
+  .ranked-row .av {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: var(--ink);
+  }
+  .ranked-row .nm { flex: 1; font-size: 12px; font-weight: 600; color: var(--ink); }
+  .ranked-row .xp-val { font-size: 11px; font-weight: 800; color: var(--kof-red); }
+
+  /* PROFILE */
+  .profile-header { text-align: center; padding: 18px 0; }
+  .profile-header .av {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--kof-red), var(--kof-red-dark));
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 800;
+    margin: 0 auto 10px;
+    border: 3px solid white; box-shadow: var(--shadow-md);
+  }
+  .profile-header .nm { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .profile-header .role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .profile-header .level-pill {
+    display: inline-block; margin-top: 8px; padding: 4px 12px;
+    background: var(--gold-soft); border: 1px solid var(--gold);
+    border-radius: 100px; font-size: 10px; font-weight: 800;
+    color: var(--ink); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
+  .profile-stats .stat-c {
+    background: white; padding: 12px 8px; border-radius: 12px;
+    border: 1px solid var(--border); text-align: center;
+  }
+  .profile-stats .stat-c .val { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .profile-stats .stat-c .lbl { font-size: 9px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
+  .badge-item {
+    aspect-ratio: 1; background: white; border: 1px solid var(--border);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .badge-item.locked { opacity: 0.3; filter: grayscale(1); }
+  .badge-item.gold { background: var(--gold-soft); border-color: var(--gold); }
+
+  /* NOTIFICATION */
+  .notif-stage {
+    background: linear-gradient(180deg, #2A2A2A, #1A1A1A);
+    height: 100%; padding: 0; display: flex; flex-direction: column;
+  }
+  .notif-stage .lock-time { text-align: center; color: white; padding: 60px 0 24px; }
+  .notif-stage .lock-time .h { font-size: 64px; font-weight: 200; letter-spacing: -2px; }
+  .notif-stage .lock-time .d { font-size: 13px; opacity: 0.6; margin-top: -6px; }
+  .notif-card {
+    margin: 0 16px 12px; background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(20px); border-radius: 16px; padding: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .notif-card .head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .notif-card .ic-app {
+    width: 22px; height: 22px; border-radius: 5px;
+    background: var(--kof-red); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800;
+  }
+  .notif-card .app-name { font-size: 11px; font-weight: 700; color: white; }
+  .notif-card .time { font-size: 10px; color: rgba(255,255,255,0.6); margin-left: auto; }
+  .notif-card .ttl { font-size: 13px; font-weight: 700; color: white; margin-bottom: 3px; }
+  .notif-card .body { font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+
+  /* CERT */
+  .cert-stage {
+    height: 100%; background: linear-gradient(180deg, var(--bg-cream), var(--gold-soft));
+    padding: 24px 16px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+  }
+  .cert-medal {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #B8860B);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 50px; color: white;
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.4);
+    margin-bottom: 20px; border: 6px solid white;
+  }
+  .cert-stage .label {
+    font-size: 10px; color: #8B7500; text-transform: uppercase;
+    letter-spacing: 2px; font-weight: 800; margin-bottom: 6px;
+  }
+  .cert-stage h2 { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.3px; margin-bottom: 10px; }
+  .cert-stage .desc { font-size: 12px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 14px; max-width: 260px; }
+  .cert-stage .name-line {
+    font-size: 16px; font-weight: 700; color: var(--ink);
+    border-top: 1px solid var(--border-strong); border-bottom: 1px solid var(--border-strong);
+    padding: 10px 0; margin-bottom: 10px;
+  }
+  .cert-stage .meta-line { font-size: 10px; color: var(--muted); margin-bottom: 24px; }
+  .cert-actions { display: flex; gap: 8px; width: 100%; }
+  .cert-actions button {
+    flex: 1; padding: 12px; border-radius: 10px; border: none;
+    font-size: 12px; font-weight: 700;
+  }
+  .cert-actions .primary { background: var(--kof-red); color: white; }
+  .cert-actions .secondary { background: white; color: var(--ink); border: 1px solid var(--border-strong); }
+
+  @media (max-width: 1100px) {
+    .split, .split.right { grid-template-columns: 1fr; gap: 40px; }
+    .split.right .text-col { order: 2; }
+    .split.right .phone-col { order: 1; }
+    .stage { padding: 60px 30px; }
+    .hero h1 { font-size: 64px; }
+    h1.chapter-title { font-size: 40px; }
+    .worlds, .compromisos, .stats-grid, .screens-grid { grid-template-columns: 1fr 1fr; }
+    .week { grid-template-columns: 1fr; }
+    .timeline-track { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- 01 · HERO -->
+<!-- ============================================ -->
+<section class="stage hero" style="position: relative;">
+  <div class="stage-inner">
+    <div class="meta-top">PROPUESTA FUNCIONAL · DIGITAL ACADEMY · EN LA APP DE CIRCLE</div>
+    <h1>Digital Growth<br>Academy</h1>
+    <div class="tagline">Videos cortos y quizzes · en la app de Circle · desde el 5 de agosto</div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="v">6</div>
+        <div class="l">Meses</div>
+      </div>
+      <div class="stat">
+        <div class="v">Circle</div>
+        <div class="l">App nativa</div>
+      </div>
+      <div class="stat">
+        <div class="v">∞</div>
+        <div class="l">Usuarios ilimitados</div>
+      </div>
+    </div>
+
+    <div class="signature">
+      Preparado para <strong>Equipo Coca-Cola FEMSA · Juntos+</strong> · por <strong>Growth Rockstar</strong> · Abril 2026
+    </div>
+  </div>
+  <div class="scroll-hint">↓ Scroll para empezar</div>
+</section>
+
+<!-- ============================================ -->
+<!-- 02 · LA PROMESA + PRINCIPIOS -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner">
+    <span class="chapter-num">01 · La promesa</span>
+    <h1 class="chapter-title">Una academia móvil,<br>simple y cercana.</h1>
+    <p class="lede">Un programa de capacidades digitales de <strong>6 meses en la app de Circle</strong>, donde el equipo de Juntos+ ve <strong>videos cortos</strong> con operadores LATAM reales (Mercado Libre, Rappi) y resuelve <strong>quizzes con casos</strong> aplicados al día a día con el tendero. Una experiencia <strong>ligera, consistente y bien acompañada</strong>, con gamificación nativa de Circle, comunidad privada de KOF y usuarios ilimitados. <strong>Arranca el 5 de agosto de 2026</strong>, un día después del Bootcamp, para mantener el momentum del equipo.</p>
+
+    <div class="compromisos">
+      <div class="compromiso">
+        <div class="num">1</div>
+        <div class="ttl">En la app de Circle</div>
+        <div class="desc">Los participantes bajan la app de Circle (iOS / Android) y entran a la comunidad privada de KOF · Juntos+. Una experiencia móvil familiar, lista desde el día uno.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">2</div>
+        <div class="ttl">Videos cortos con operadores reales</div>
+        <div class="desc">Mínimo 6 videos por mundo · 60–90 segundos cada uno · grabados profesionalmente con operadores LATAM con track comprobable (Roman Hughes + speakers curados).</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">3</div>
+        <div class="ttl">Quizzes con casos aplicados</div>
+        <div class="desc">Mínimo 3 quizzes por mundo · cada uno construido como un caso real aplicado al día a día con el tendero · feedback inmediato y validación automática.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">4</div>
+        <div class="ttl">Una estructura clara por mundo</div>
+        <div class="desc">Por mundo: 6 videos + 3 quizzes, distribuidos en 3 bloques temáticos. Una arquitectura simple, fácil de seguir y de sostener durante 6 meses.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">5</div>
+        <div class="ttl">Gamificación nativa de Circle</div>
+        <div class="desc">Puntos por ver videos y completar quizzes · niveles automáticos · leaderboard de miembros · badges. Las mecánicas que Circle trae integradas, listas para usar desde el inicio.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">6</div>
+        <div class="ttl">Comunidad privada de KOF</div>
+        <div class="desc">Espacio cerrado solo para participantes de KOF, con identidad visual del Mundial Digital y threads de Circle para discusión asíncrona entre pares.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">7</div>
+        <div class="ttl">Town Halls trimestrales</div>
+        <div class="desc">2 Town Halls de 30 min en los 6 meses · Q&amp;A grupal con el equipo de Growth Rockstar · la grabación queda disponible en Circle para quien no pueda asistir en vivo.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">8</div>
+        <div class="ttl">Usuarios ilimitados</div>
+        <div class="desc">KOF puede activar a los 80+ participantes objetivo o ampliar a toda la operación de Juntos+. Circle resuelve el escalamiento de forma nativa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 03 · SEMANA OPERA -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner">
+    <span class="chapter-num">02 · El ritmo del mes</span>
+    <h1 class="chapter-title">Cada mundo dura un mes.<br>6 videos y 3 quizzes.</h1>
+    <p class="lede">El consumo es <strong>asíncrono y flexible</strong>: cada participante entra a la app de Circle cuando puede, ve los videos, responde los quizzes y avanza al siguiente bloque. La estructura del mes son <strong>3 bloques temáticos</strong>, cada uno con <strong>2 videos cortos + 1 quiz integrador</strong>. Total por mundo: <strong>6 videos + 3 quizzes</strong>, distribuidos para acompañar el ritmo del equipo.</p>
+
+    <div class="week" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="day">
+        <div class="day-name">Bloque 1</div>
+        <div class="day-num">1</div>
+        <div class="opera-letter">▶</div>
+        <div class="opera-word">2 videos<br>+ 1 quiz</div>
+        <div class="format">Introducción al mundo · primer ángulo del operador · quiz integrador</div>
+        <div class="duration">~15 min</div>
+      </div>
+      <div class="day">
+        <div class="day-name">Bloque 2</div>
+        <div class="day-num">2</div>
+        <div class="opera-letter">▶</div>
+        <div class="opera-word">2 videos<br>+ 1 quiz</div>
+        <div class="format">Profundización del caso · segundo ángulo + framework aplicado · quiz</div>
+        <div class="duration">~15 min</div>
+      </div>
+      <div class="day boss">
+        <div class="day-name">Bloque 3</div>
+        <div class="day-num">3</div>
+        <div class="opera-letter">▶</div>
+        <div class="opera-word">2 videos<br>+ 1 quiz</div>
+        <div class="format">Aplicación al tendero · caso 1:1 con Juntos+ · quiz de cierre del mundo</div>
+        <div class="duration">~15 min</div>
+      </div>
+    </div>
+
+    <div class="key-fact">
+      <div class="lbl">El insight clave</div>
+      <div class="text">La estructura del mes acompaña el ritmo del equipo. <strong>6 videos + 3 quizzes</strong> dan exposición continua a casos reales y consolidan el aprendizaje en el flujo natural de la operación. Total: <strong>~45 minutos por mes</strong>, distribuidos como el participante quiera. La consistencia del contenido y la comunidad de Circle sostienen el programa los 6 meses.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 04 · LOS 6 MUNDOS -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner">
+    <span class="chapter-num">03 · El path</span>
+    <h1 class="chapter-title">6 mundos en 6 meses. Uno por mes.</h1>
+    <p class="lede">Cada mundo es <strong>autocontenido</strong>: 6 videos + 3 quizzes en la app de Circle. Cubre los 5 pilares del RFP + adquisición como palanca crítica de crecimiento. <strong>Arranca el 5 de agosto de 2026</strong>, un día después del Bootcamp.</p>
+
+    <div class="worlds">
+      <div class="world first">
+        <div class="month-pill">Mes 1 · Agosto</div>
+        <div class="num">1</div>
+        <div class="nm">🚀 Adquisición acelerada</div>
+        <div class="cap">Diseñar y operar funnels B2B con CAC controlado, sin depender de campañas masivas.</div>
+        <div class="case">Casos · Mercado Libre · Rappi</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 2 · Septiembre</div>
+        <div class="num">2</div>
+        <div class="nm">🔄 Retención sistémica</div>
+        <div class="cap">Diseñar journeys de retención y modelar LTV en negocios de alta frecuencia.</div>
+        <div class="case">Casos · Mercado Libre · Rappi</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 3 · Octubre</div>
+        <div class="num">3</div>
+        <div class="nm">🧠 Customer Behavior</div>
+        <div class="cap">Leer comportamiento digital y operar segmentación dinámica con señales en tiempo real.</div>
+        <div class="case">Casos · Mercado Libre · Rappi</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 4 · Noviembre</div>
+        <div class="num">4</div>
+        <div class="nm">💥 Demand Gen B2B2C</div>
+        <div class="cap">Diseñar mecánicas donde el canal B2B activa demanda al consumidor final.</div>
+        <div class="case">Casos · Rappi · Mercado Libre</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 5 · Diciembre</div>
+        <div class="num">5</div>
+        <div class="nm">🤝 Customer Journey Phygital</div>
+        <div class="cap">Orquestar journeys donde lo digital y lo físico se refuerzan.</div>
+        <div class="case">Casos · Rappi · Mercado Libre</div>
+      </div>
+      <div class="world">
+        <div class="month-pill">Mes 6 · Enero 2027</div>
+        <div class="num">6</div>
+        <div class="nm">🧪 Experimentación</div>
+        <div class="cap">Operar como motor de growth: diseñar, ejecutar y leer experimentos.</div>
+        <div class="case">Casos · Mercado Libre · Rappi</div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="lbl">Cobertura del RFP</div>
+      <div class="text">Los seis mundos cubren los 5 pilares del RFP más adquisición como palanca crítica. Un mundo por mes, de agosto a enero, con el programa cerrando antes del inicio del Q1 fiscal 2027.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- 04 · CÓMO SE VE UN MUNDO EN CIRCLE -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner split">
+    <div class="phone-col">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+          <div class="nav-bar">
+            <div class="back">←</div>
+            <div class="title">Mundo 1 · Adquisición</div>
+            <div class="right"></div>
+          </div>
+          <div class="content">
+            <div class="video-stage" style="background: linear-gradient(135deg, #2A2A2A, #1A1A1A);">
+              <div class="duration">0:90</div>
+              <div class="play-btn">▶</div>
+              <div class="speaker">
+                <div class="name">Video 1 · Roman Hughes</div>
+                <div class="role">Ex-Rappi · Ex-MELI · 90 segundos</div>
+              </div>
+            </div>
+            <div class="briefing-box" style="margin-bottom: 8px;">
+              <div class="lbl">EL CASO</div>
+              <p>"En Mercado Libre pasamos de 4 segmentos estáticos a +200 micro-segmentos dinámicos en 18 meses. La pelea más dura no fue técnica."</p>
+            </div>
+            <button class="next-btn">Marcar visto · +50 pts Circle</button>
+            <div style="margin-top: 12px; padding: 8px 12px; background: #F4E4A6; border-radius: 8px; font-size: 11px; color: #8C6A1F; text-align: center;">Siguiente: Quiz 1 · 5 preguntas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-col">
+      <span class="day-anchor lunes">Bloque 1 · Video</span>
+      <span class="opera-tag">En la app de Circle</span>
+      <h2 class="section-title" style="margin-top: 20px;">Un video de 90 segundos. Un operador real.</h2>
+      <p class="body-text">El participante abre la <strong>app de Circle</strong> en su celular, entra a la comunidad privada de KOF · Juntos+ y encuentra el video del bloque en el Mundo 1. <strong>Roman Hughes</strong> (ex-VP CRM de Rappi, ex-Director de Engagement de Mercado Libre) cuenta un caso real en 90 segundos.</p>
+      <p class="body-text">No es una clase magistral. Es un <strong>operador real</strong> que estuvo en el cargo y comparte una decisión específica que tomó. El video vive en el feed de Circle, se ve con el reproductor nativo, se comenta en los threads de la comunidad.</p>
+
+      <div class="case-callout">
+        <div class="lbl">Roman como speaker ancla</div>
+        <div class="text">Roman aporta cobertura transversal de los 5 pilares a través de su recorrido por Mercado Libre (segmentación, retention economics, Mercado Puntos con 40M+ miembros) y Rappi (CRM, lifecycle, demand gen B2B2C). Sus casos cruzan adquisición, retención, behavior, demand gen y experimentación, dando continuidad temática al programa con un hilo conductor consistente.</div>
+      </div>
+
+      <p class="body-text" style="margin-top: 20px;">Al cerrar el video, el participante lo marca como visto y <strong>suma puntos en Circle</strong> a través de la gamificación nativa. El leaderboard de la comunidad se actualiza en tiempo real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 05 · EL QUIZ DEL MUNDO -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner split right">
+    <div class="text-col">
+      <span class="day-anchor martes">Bloque 1 · Quiz integrador</span>
+      <span class="opera-tag">En la app de Circle</span>
+      <h2 class="section-title" style="margin-top: 20px;">5 preguntas tipo caso. Feedback inmediato.</h2>
+      <p class="body-text">Después de los videos del bloque, el participante hace <strong>el quiz integrador en la app de Circle</strong>. Son <strong>5 preguntas de opción múltiple</strong>, cada una redactada como un mini-caso aplicado al tendero. No son preguntas de memorización — son preguntas de criterio.</p>
+      <p class="body-text">Ejemplo: <em>"Tu plaza tiene 300 tenderos registrados pero solo 90 activos en el último mes. Aplicando lo que Roman comentó sobre Mercado Libre, ¿qué priorizarías primero?"</em></p>
+
+      <div class="case-callout">
+        <div class="lbl">El formato del quiz</div>
+        <div class="text">Cada quiz se construye como un mini-caso aplicado al día a día con el tendero. Validación automática, feedback inmediato (respuesta correcta + explicación) y registro de progreso en el perfil del participante. La experiencia es ligera, enfocada en el criterio aplicado y diseñada para reforzar lo que el video planteó.</div>
+      </div>
+
+      <p class="body-text" style="margin-top: 20px;">Resultado: <strong>feedback inmediato</strong>, <strong>puntos por respuestas correctas</strong> y el avance al siguiente bloque del mundo. Al completar los 3 bloques, el mundo queda cerrado.</p>
+    </div>
+
+    <div class="phone-col">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="status-bar"><span>12:34</span><span class="icons">●●●</span></div>
+          <div class="nav-bar">
+            <div class="back">←</div>
+            <div class="title">Quiz 1 · Mundo 1</div>
+            <div class="right"></div>
+          </div>
+          <div class="content">
+            <div class="briefing-box" style="margin-bottom: 16px;">
+              <div class="lbl">PREGUNTA 3 DE 5</div>
+              <p>Tu plaza tiene 300 tenderos registrados pero solo 90 activos. Aplicando lo que Roman comentó sobre Mercado Libre, ¿qué priorizarías primero?</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="padding: 12px; background: white; border: 1.5px solid #E8E2D0; border-radius: 10px; font-size: 12px; color: #3A3A3A;">
+                <strong>A.</strong> Lanzar campaña masiva en redes
+              </div>
+              <div style="padding: 12px; background: #D4F1E8; border: 1.5px solid #16A085; border-radius: 10px; font-size: 12px; color: #16A085; font-weight: 600;">
+                <strong>B.</strong> Identificar la señal de comportamiento que separa al activo del inactivo ✓
+              </div>
+              <div style="padding: 12px; background: white; border: 1.5px solid #E8E2D0; border-radius: 10px; font-size: 12px; color: #3A3A3A;">
+                <strong>C.</strong> Subir el incentivo de registro
+              </div>
+              <div style="padding: 12px; background: white; border: 1.5px solid #E8E2D0; border-radius: 10px; font-size: 12px; color: #3A3A3A;">
+                <strong>D.</strong> Reducir el catálogo
+              </div>
+            </div>
+            <div style="margin-top: 16px; padding: 10px; background: #F4E4A6; border-radius: 8px; font-size: 11px; color: #8C6A1F;">
+              <strong>+20 pts</strong> · Respuesta correcta · Feedback automático visible
+            </div>
+            <button class="next-btn kof" style="margin-top: 12px;">Siguiente pregunta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 06 · GAMIFICACIÓN NATIVA DE CIRCLE -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner">
+    <span class="chapter-num">06 · Gamificación</span>
+    <h1 class="chapter-title">Las mecánicas que Circle<br>trae integradas.</h1>
+    <p class="lede">Circle ofrece una capa de gamificación <strong>integrada</strong> a la plataforma que activamos para la comunidad de KOF. Son <strong>4 mecánicas listas para usar</strong>, configurables sin código, que dan ritmo y reconocimiento al recorrido de cada participante.</p>
+
+    <div class="compromisos" style="grid-template-columns: repeat(4, 1fr); margin-top: 50px;">
+      <div class="compromiso">
+        <div class="num">🎯</div>
+        <div class="ttl">Puntos automáticos</div>
+        <div class="desc">El participante gana puntos por ver videos, completar quizzes, comentar en threads y reaccionar a posts de la comunidad. Todo automático en Circle.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">📊</div>
+        <div class="ttl">Niveles automáticos</div>
+        <div class="desc">A medida que acumula puntos, el participante sube de nivel automáticamente. Cada nivel desbloquea un rótulo visible en su perfil de Circle.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">🏆</div>
+        <div class="ttl">Leaderboard nativo</div>
+        <div class="desc">Ranking de miembros de la comunidad ordenado por puntos. Visible a todos los participantes en la app de Circle, con actualización en tiempo real.</div>
+      </div>
+      <div class="compromiso">
+        <div class="num">🎖️</div>
+        <div class="ttl">Badges automáticos</div>
+        <div class="desc">Reconocimientos visuales que Circle entrega al cumplir hitos: primer video visto, primer quiz aprobado, completar un mundo, sostener una racha, etc.</div>
+      </div>
+    </div>
+
+    <div class="insight-box" style="margin-top: 50px;">
+      <div class="lbl">Cómo se activa la gamificación</div>
+      <div class="text">Las cuatro mecánicas están listas desde el día uno, configuradas en la comunidad privada de KOF. Circle evoluciona y mejora sus funcionalidades de forma continua, así que la experiencia se enriquece a lo largo del programa. Es una plataforma con cientos de comunidades activas en el mundo y un track record comprobado.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 07 · COMUNIDAD KOF EN CIRCLE + TOWN HALLS -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-cream);">
+  <div class="stage-inner">
+    <span class="chapter-num">07 · Comunidad &amp; Town Halls</span>
+    <h1 class="chapter-title">Comunidad privada de KOF + 2 Town Halls.</h1>
+    <p class="lede">Más allá del video + quiz mensual, hay dos elementos que sostienen el engagement los 6 meses: <strong>la comunidad privada de KOF en Circle</strong> (threads abiertos donde los participantes comentan y se preguntan entre sí) y <strong>2 Town Halls trimestrales</strong> en vivo con el equipo de Growth Rockstar.</p>
+
+    <div class="screens-grid" style="grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 50px;">
+
+      <!-- COMUNIDAD KOF -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+            <div class="nav-bar">
+              <div class="back">←</div>
+              <div class="title">Comunidad KOF · Juntos+</div>
+              <div class="right"></div>
+            </div>
+            <div class="content">
+              <div class="liga-header">
+                <div class="lbl">💬 ESPACIO PRIVADO · SOLO KOF</div>
+                <h2>Threads activos</h2>
+              </div>
+              <div class="briefing-box" style="margin-bottom: 12px;">
+                <div class="lbl">FIJADO POR ADMIN</div>
+                <p><strong>Mundo 1 · Adquisición</strong> · Video 1 + Quiz 1 disponibles desde el 5 de agosto.</p>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">💭</div><div class="av">🇧🇷</div>
+                <div class="nm">"¿Cómo aplicaron la lección de MELI en su plaza?"</div>
+              </div>
+              <div class="ranked-row me">
+                <div class="rank">💭</div><div class="av">🇨🇱</div>
+                <div class="nm">"Compartiendo screenshot de mi funnel de tenderos"</div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">💭</div><div class="av">🇦🇷</div>
+                <div class="nm">"Pregunta del quiz 3 — ¿alguien la entendió?"</div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">💭</div><div class="av">🇲🇽</div>
+                <div class="nm">"Mi commitment del Bootcamp · update mes 1"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Comunidad privada de KOF en Circle</div>
+        <div class="screen-desc">Espacio cerrado solo para participantes de KOF. Branded con identidad KOF + Mundial Digital. Threads asíncronos para discusión entre pares.</div>
+      </div>
+
+      <!-- TOWN HALL TRIMESTRAL -->
+      <div class="screen-cell">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar"><span>9:41</span><span class="icons">●●●</span></div>
+            <div class="nav-bar">
+              <div class="back">←</div>
+              <div class="title">Town Hall · Q4 2026</div>
+              <div class="right"></div>
+            </div>
+            <div class="content">
+              <div class="liga-header">
+                <div class="lbl">🎤 TOWN HALL TRIMESTRAL</div>
+                <h2>Q&amp;A grupal · 30 min</h2>
+              </div>
+              <div class="briefing-box">
+                <div class="lbl">EN VIVO · 30 MIN · POR ZOOM</div>
+                <p>Sesión trimestral con el equipo de Growth Rockstar. Q&amp;A grupal sobre los mundos cubiertos en el trimestre. <strong>Grabación queda disponible en Circle.</strong></p>
+              </div>
+              <div class="path-section-title">Solo 2 Town Halls en 6 meses</div>
+              <div class="ranked-row">
+                <div class="rank">1</div><div class="av">📅</div>
+                <div class="nm">Octubre 2026 · Recap mundos 1–3</div>
+              </div>
+              <div class="ranked-row">
+                <div class="rank">2</div><div class="av">📅</div>
+                <div class="nm">Enero 2027 · Recap mundos 4–6 + cierre</div>
+              </div>
+              <button class="next-btn kof" style="margin-top: 16px;">Agendar siguiente Town Hall</button>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">Town Hall trimestral</div>
+        <div class="screen-desc">2 sesiones de 30 min en los 6 meses. Q&amp;A grupal (no feedback individual). Grabación queda en Circle.</div>
+      </div>
+
+    </div>
+
+    <div class="key-fact" style="margin-top: 60px;">
+      <div class="lbl">Lo que sostiene los 6 meses</div>
+      <div class="text">Tres elementos sostienen el programa los 6 meses: <strong>la consistencia del contenido mensual</strong> (6 videos + 3 quizzes), <strong>la comunidad privada de Circle</strong> donde los pares se preguntan entre sí y comparten avances, y <strong>los 2 Town Halls trimestrales</strong> que dan ritmo y presencia del equipo de Growth Rockstar. Una estructura clara, cercana y fácil de seguir.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 13 · CRONOGRAMA + CIERRE -->
+<!-- ============================================ -->
+<section class="stage" style="background: var(--bg-warm);">
+  <div class="stage-inner">
+    <span class="chapter-num">08 · Cronograma</span>
+    <h1 class="chapter-title">7 meses. 6 mundos.<br>Arranca el 5 de agosto.</h1>
+    <p class="lede">Pre-producción en junio–julio. Bootcamp el 4 de agosto. <strong>Lanzamiento de Mundo 1 el 5 de agosto</strong>, un día después del Bootcamp. Un mundo por mes hasta enero 2027, cuando cierra el programa.</p>
+
+    <div class="timeline">
+      <div class="timeline-track">
+        <div class="timeline-month prep">
+          <div class="bar">Pre</div>
+          <div class="label">Pre-producción · grabación de videos + diseño de quizzes + setup de Circle</div>
+          <div class="month">Junio–Julio</div>
+        </div>
+        <div class="timeline-month bootcamp">
+          <div class="bar">⚽</div>
+          <div class="label">Bootcamp presencial (1 día) + arranque Mundo 1</div>
+          <div class="month">4–5 Agosto</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M1</div>
+          <div class="label">Adquisición · 6 videos + 3 quizzes en Circle</div>
+          <div class="month">Agosto</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M2</div>
+          <div class="label">Retención sistémica</div>
+          <div class="month">Septiembre</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M3</div>
+          <div class="label">Customer Behavior</div>
+          <div class="month">Octubre</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M4</div>
+          <div class="label">Demand Gen B2B2C</div>
+          <div class="month">Noviembre</div>
+        </div>
+        <div class="timeline-month world">
+          <div class="bar">M5</div>
+          <div class="label">Customer Journey Phygital</div>
+          <div class="month">Diciembre</div>
+        </div>
+        <div class="timeline-month cierre">
+          <div class="bar">M6</div>
+          <div class="label">Experimentación + reporte final</div>
+          <div class="month">Enero 2027</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 14 · CLOSING -->
+<!-- ============================================ -->
+<section class="stage closing">
+  <div class="stage-inner" style="text-align: center;">
+    <h1>Esa es la Academy.</h1>
+    <div class="tagline">Videos cortos y quizzes en la app de Circle · desde el 5 de agosto · acompañando al equipo de Juntos+ por 6 meses.</div>
+
+    <div class="key-list">
+      <div class="item">
+        <div class="v">6</div>
+        <div class="l">Mundos temáticos<br>cubriendo los 5 pilares del RFP + adquisición</div>
+      </div>
+      <div class="item">
+        <div class="v">36</div>
+        <div class="l">Videos cortos<br>60–90 segundos cada uno, con Roman + curaduría</div>
+      </div>
+      <div class="item">
+        <div class="v">18</div>
+        <div class="l">Quizzes con casos<br>5 preguntas cada uno, feedback inmediato</div>
+      </div>
+      <div class="item">
+        <div class="v">2</div>
+        <div class="l">Town Halls trimestrales<br>30 min · Q&amp;A grupal · grabados</div>
+      </div>
+      <div class="item">
+        <div class="v">∞</div>
+        <div class="l">Usuarios ilimitados<br>Circle escala de forma nativa</div>
+      </div>
+      <div class="item">
+        <div class="v">Circle</div>
+        <div class="l">App nativa de Circle<br>iOS, Android y web, lista para usar</div>
+      </div>
+    </div>
+
+    <div class="signature" style="font-size: 14px; color: rgba(255,255,255,0.5); letter-spacing: 1px;">
+      Growth Rockstar · Abril 2026 · Documento confidencial
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
